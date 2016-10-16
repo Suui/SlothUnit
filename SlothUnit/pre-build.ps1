@@ -1,0 +1,1 @@
+ Start-Process -FilePath "SlothUnitParser/bin/Release/SlothUnitParser.exe"
