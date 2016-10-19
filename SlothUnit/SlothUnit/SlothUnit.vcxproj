@@ -146,9 +146,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Assertion.h" />
+    <ClInclude Include="Exports.h" />
     <ClInclude Include="SlothUnit.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Assertion.cpp" />
     <ClCompile Include="SlothUnit.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

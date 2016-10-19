@@ -1,10 +1,7 @@
 #pragma once
 
-#ifdef SLOTHUNIT_EXPORTS
-#define SLOTHUNIT_API __declspec(dllexport)
-#else
-#define SLOTHUNIT_API __declspec(dllimport)
-#endif
+#include "Exports.h"
+#include "Assertion.h"
 
 namespace SlothUnit
 {
@@ -20,17 +17,4 @@ namespace SlothUnit
 	#define Attribute(...)
 
 #endif
-
-	class SLOTHUNIT_API Assertion
-	{
-		int givenNumber;
-
-	public:
-
-		explicit Assertion(int givenNumber);
-
-		bool ToBe(int expectedNumber);
-	};
-
-	SLOTHUNIT_API Assertion Expect(int givenNumber);
 }
