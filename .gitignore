@@ -1,6 +1,9 @@
 .vs
+packages
 Debug
 Release
+x86
+x64
 
 *.user
 *.opendb
