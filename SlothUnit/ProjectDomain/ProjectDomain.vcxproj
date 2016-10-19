@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C24632D6-B90D-4035-876B-44D457743C49}</ProjectGuid>
+    <ProjectGuid>{09BD1753-4863-44CB-AE84-463FD1013C57}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ProjectDomain</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Calculator.h" />
+    <ClInclude Include="Exports.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Calculator.cpp" />

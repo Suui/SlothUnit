@@ -1,6 +1,8 @@
 ﻿#pragma once
 
-class Calculator
+#include "Exports.h"
+
+class PROJECTDOMAIN_API Calculator
 {
 public:
 
