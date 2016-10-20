@@ -15,21 +15,15 @@ namespace SlothUnitParser
 			return new List<TestFile>();
 		}
 
-		private CXCursor CurrentClassCursor { get; set; }
 		private CXCursor CurrentMethodCursor { get; set; }
 
 		private List<CXCursor> Classes { get; } = new List<CXCursor>();
 
 		public TestFile TryGetTestFileFrom(string filePath)
 		{
-			CXUnsavedFile unsavedFile;
-
-			var index = clang.createIndex(0, 0);
-			var arguments = new[] { "-x", "c++", "-std=c++11", "-D__SLOTH_UNIT_PARSER__" };
-
-			var translationUnit = clang.createTranslationUnitFromSourceFile(index, filePath, arguments.Length, arguments, 0, out unsavedFile);
-			var cursor = clang.getTranslationUnitCursor(translationUnit);
-
+			var clangWrapper = new ClangWrapper();
+			var cursor = clangWrapper.GetCursorForFile(filePath);
+			
 			clang.visitChildren(cursor, PrettyPrint, new CXClientData(IntPtr.Zero));
 
 			var testFile = new TestFile("")
@@ -41,8 +35,7 @@ namespace SlothUnitParser
 				Name = clang.getCursorSpelling(Classes.Single()).ToString()
 			});
 
-			clang.disposeTranslationUnit(translationUnit);
-			clang.disposeIndex(index);
+			clangWrapper.Dispose();
 			return testFile;
 		}
 
@@ -52,7 +45,6 @@ namespace SlothUnitParser
 			{
 				Classes.Add(cursor);
 				Console.WriteLine(clang.getCursorSpelling(cursor).ToString());
-				clang.visitChildren(cursor, PrintClassChildren, new CXClientData(IntPtr.Zero));
 			}
 
 			return CXChildVisitResult.CXChildVisit_Continue;
@@ -83,6 +75,27 @@ namespace SlothUnitParser
 			}
 
 			return CXChildVisitResult.CXChildVisit_Continue;
+		}
+	}
+
+	public class ClangWrapper
+	{
+		private string[] Arguments { get; }= { "-x", "c++", "-std=c++11", "-D__SLOTH_UNIT_PARSER__" };
+		private CXIndex Index { get; set; }
+		private CXTranslationUnit TranslationUnit { get; set; }
+
+		public CXCursor GetCursorForFile(string filePath)
+		{
+			CXUnsavedFile unsavedFile;
+			Index = clang.createIndex(0, 0);
+			TranslationUnit = clang.createTranslationUnitFromSourceFile(Index, filePath, Arguments.Length, Arguments, 0, out unsavedFile);
+			return clang.getTranslationUnitCursor(TranslationUnit);
+		}
+
+		public void Dispose()
+		{
+			clang.disposeTranslationUnit(TranslationUnit);
+			clang.disposeIndex(Index);
 		}
 	}
 }
