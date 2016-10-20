@@ -39,5 +39,10 @@ namespace SlothUnitParser
 			clang.visitChildren(GetCursorForFile(filePath), visitor, new CXClientData());
 			return classCursors;
 		}
+
+		public static string GetCursorName(CXCursor cursor)
+		{
+			return clang.getCursorSpelling(cursor).ToString();
+		}
 	}
 }
