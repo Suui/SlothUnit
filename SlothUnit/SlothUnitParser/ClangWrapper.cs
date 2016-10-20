@@ -6,7 +6,7 @@ namespace SlothUnitParser
 {
 	public class ClangWrapper
 	{
-		private string[] Arguments { get; }= { "-x", "c++", "-std=c++11", "-D__SLOTH_UNIT_PARSER__" };
+		private string[] Arguments { get; } = { "-x", "c++", "-std=c++11", "-D__SLOTH_UNIT_PARSER__" };
 		private CXIndex Index { get; set; }
 		private CXTranslationUnit TranslationUnit { get; set; }
 
