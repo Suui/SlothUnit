@@ -4,8 +4,6 @@
 
 using namespace SlothUnit;
 
-struct SampleAttribute {};
-
 class CalculatorShould
 {
 public:

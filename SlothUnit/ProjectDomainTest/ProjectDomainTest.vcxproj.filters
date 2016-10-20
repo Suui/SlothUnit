@@ -23,5 +23,11 @@
     <ClInclude Include="CalculatorShould.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TestFileShould.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassShould.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
