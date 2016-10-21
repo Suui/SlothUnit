@@ -1,4 +1,6 @@
-﻿using FluentAssertions;
+﻿using System;
+using System.IO;
+using FluentAssertions;
 using NUnit.Framework;
 using SlothUnitParser;
 
@@ -15,7 +17,9 @@ namespace SlothUnit.Parser.Test
 		[Test]
 		public void be_found_in_file()
 		{
-			const string filePath = @"E:\Projects\CPP\SlothUnit\SlothUnit\ProjectDomainTest\ClassShould.h";
+			var solutionDir = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\.."));
+			var testProjectDir = Path.Combine(solutionDir, "ProjectDomainTest");
+			var filePath = Path.Combine(testProjectDir, "ClassShould.h");
 
 			var testFile = new SlothParser().TryGetTestFileFrom(filePath);
 

@@ -7,12 +7,16 @@ namespace SlothUnitParser
 	{
 		public TestFile TryGetTestFileFrom(string filePath)
 		{
+			var testFile = new TestFile(filePath);
+
 			var clangWrapper = new ClangWrapper();
 			var classesInFile = clangWrapper.GetClassCursorsIn(filePath);
-			var className = ClangWrapper.GetCursorName(classesInFile.Single());
 
-			var testFile = new TestFile();
-			testFile.AddClass(new TestClass(className));
+			if (classesInFile.Any())
+			{
+				var className = ClangWrapper.GetCursorName(classesInFile.Single());
+				testFile.AddClass(new TestClass(className));
+			}
 
 			clangWrapper.Dispose();
 			return testFile;

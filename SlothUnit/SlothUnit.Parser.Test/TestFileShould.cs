@@ -1,4 +1,6 @@
-﻿using FluentAssertions;
+﻿using System;
+using System.IO;
+using FluentAssertions;
 using NUnit.Framework;
 using SlothUnitParser;
 
@@ -13,14 +15,16 @@ namespace SlothUnit.Parser.Test
 	public class TestFileShould
 	{
 		[Test]
-		public void be_retrieved_from_a_header_file_when_it_has_test_methods_inside_a_class()
+		public void be_retrieved_from_a_header_file()
 		{
-			const string headerFilePath = @"E:\Projects\CPP\SlothUnit\SlothUnit\ProjectDomainTest\TestFileShould.h";
+			var solutionDir = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\.."));
+			var testProjectDir = Path.Combine(solutionDir, "ProjectDomainTest");
+			var headerFilePath = Path.Combine(testProjectDir, "TestFileShould.h");
 			
 			var testFile = new SlothParser().TryGetTestFileFrom(headerFilePath);
 			
 			testFile.Name.Should().Be("TestFileShould.h");
-			testFile.Path.Should().Be(@"E:\Projects\CPP\SlothUnit\SlothUnit\ProjectDomainTest\" + "TestFileShould.h");
+			testFile.Path.Should().Be(headerFilePath);
 		}
 	}
 }
