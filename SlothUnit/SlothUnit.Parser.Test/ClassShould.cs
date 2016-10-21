@@ -1,7 +1,5 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using ClangSharp;
 using FluentAssertions;
 using NUnit.Framework;
 using SlothUnitParser;

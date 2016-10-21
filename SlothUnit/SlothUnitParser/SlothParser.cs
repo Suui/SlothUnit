@@ -1,5 +1,6 @@
-﻿using System.Linq;
-using ClangSharp;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 
 namespace SlothUnitParser
@@ -13,20 +14,13 @@ namespace SlothUnitParser
 			var clangWrapper = new ClangWrapper();
 			var classesInFile = clangWrapper.GetClassCursorsIn(filePath);
 
-			foreach (var classCursor in classesInFile)
-			{
-				var testMethodsInClass = clangWrapper.GetTestMethodsIn(classCursor);
-				if (testMethodsInClass.Any())
-					testFile.AddClass(TestClass.BuildFrom(classCursor));
-			}
+			var testClasses = classesInFile.Select(TestClass.BuildFrom)
+										   .Where(Class.IsTestClass)
+										   .ToList();
+			testClasses.ForEach(testClass => testFile.AddClass(testClass));
 
 			clangWrapper.Dispose();
 			return testFile;
-		}
-
-		private bool ContainsTestMethods(CXCursor @class)
-		{
-			throw new System.NotImplementedException();
 		}
 	}
 }
