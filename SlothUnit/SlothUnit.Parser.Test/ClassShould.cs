@@ -22,7 +22,7 @@ namespace SlothUnit.Parser.Test
 
 			var testFile = new SlothParser().TryGetTestFileFrom(filePath);
 
-			testFile.TestClasses.Single().Name.Should().Be("ClassShould");
+			testFile.TestClasses.Single().Name.Should().Be(className);
 		}
 	}
 }
