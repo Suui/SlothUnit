@@ -12,14 +12,13 @@ using SlothUnitParser;
 namespace SlothUnit.Parser.Test
 {
 	[TestFixture]
-	public class ClassShould
+	public class ClassShould : FileSystemTest
 	{
 		[Test]
 		public void be_found_in_file()
 		{
-			var solutionDir = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\.."));
-			var testProjectDir = Path.Combine(solutionDir, "ProjectDomainTest");
-			var filePath = Path.Combine(testProjectDir, "ClassShould.h");
+			const string className = "ClassShould";
+			var filePath = Path.Combine(TestProjectDir, className + ".h");
 
 			var testFile = new SlothParser().TryGetTestFileFrom(filePath);
 

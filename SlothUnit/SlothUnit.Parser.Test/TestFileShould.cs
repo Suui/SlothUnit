@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using FluentAssertions;
 using NUnit.Framework;
 using SlothUnitParser;
@@ -12,18 +11,17 @@ using SlothUnitParser;
 namespace SlothUnit.Parser.Test
 {
 	[TestFixture]
-	public class TestFileShould
+	public class TestFileShould : FileSystemTest
 	{
 		[Test]
 		public void be_retrieved_from_a_header_file()
 		{
-			var solutionDir = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\.."));
-			var testProjectDir = Path.Combine(solutionDir, "ProjectDomainTest");
-			var headerFilePath = Path.Combine(testProjectDir, "TestFileShould.h");
+			const string fileName = "TestFileShould.h";
+			var headerFilePath = Path.Combine(TestProjectDir, fileName);
 			
 			var testFile = new SlothParser().TryGetTestFileFrom(headerFilePath);
 			
-			testFile.Name.Should().Be("TestFileShould.h");
+			testFile.Name.Should().Be(fileName);
 			testFile.Path.Should().Be(headerFilePath);
 		}
 	}

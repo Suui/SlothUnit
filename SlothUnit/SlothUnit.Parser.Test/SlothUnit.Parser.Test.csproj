@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassShould.cs" />
+    <Compile Include="FileSystemTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestFileShould.cs" />
   </ItemGroup>
