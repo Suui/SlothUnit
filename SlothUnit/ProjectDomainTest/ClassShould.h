@@ -7,4 +7,15 @@ class ClassShould
 {
 public:
 
+	Test()
+	void test_method()
+	{
+		
+	}
+};
+
+class ClassWithoutTestMethods
+{
+public:
+
 };

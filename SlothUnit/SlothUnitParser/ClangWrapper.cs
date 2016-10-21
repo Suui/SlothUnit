@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ClangSharp;
 
 
@@ -43,6 +44,37 @@ namespace SlothUnitParser
 		public static string GetCursorName(CXCursor cursor)
 		{
 			return clang.getCursorSpelling(cursor).ToString();
+		}
+
+		public List<CXCursor> GetTestMethodsIn(CXCursor cxCursor)
+		{
+			var testMethodCursors = new List<CXCursor>();
+
+			CXCursorVisitor visitor = (cursor, parent, data) =>
+			{
+				if (cursor.kind == CXCursorKind.CXCursor_CXXMethod)
+				{
+					CXCursorVisitor methodVisitor = (cursorX, parentX, dataX) =>
+					{
+						if (cursorX.kind == CXCursorKind.CXCursor_AnnotateAttr)
+						{
+							var properties = GetCursorName(cursorX).Split(',').ToList();
+
+							if (properties.Contains("Test"))
+								testMethodCursors.Add(cursorX);
+						}
+
+						return CXChildVisitResult.CXChildVisit_Continue;
+					};
+
+					clang.visitChildren(cursor, methodVisitor, new CXClientData());
+				}
+
+				return CXChildVisitResult.CXChildVisit_Continue;
+			};
+
+			clang.visitChildren(cxCursor, visitor, new CXClientData());
+			return testMethodCursors;
 		}
 	}
 }

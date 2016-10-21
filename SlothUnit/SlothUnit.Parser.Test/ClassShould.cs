@@ -17,12 +17,21 @@ namespace SlothUnit.Parser.Test
 		[Test]
 		public void be_found_in_file()
 		{
-			const string className = "ClassShould";
-			var filePath = Path.Combine(TestProjectDir, className + ".h");
+			var filePath = Path.Combine(TestProjectDir, "ClassShould.h");
 
 			var testFile = new SlothParser().TryGetTestFileFrom(filePath);
 
-			testFile.TestClasses.Single().Name.Should().Be(className);
+			testFile.TestClasses.Single().Name.Should().Be("ClassShould");
+		}
+
+		[Test]
+		public void only_be_retrieved_if_it_contains_test_methods()
+		{
+			var filePath = Path.Combine(TestProjectDir, "ClassShould.h");
+
+			var testFile = new SlothParser().TryGetTestFileFrom(filePath);
+
+			testFile.TestClasses.Single().Name.Should().NotBe("ClassWithoutTestMethods");
 		}
 	}
 }
