@@ -85,5 +85,13 @@ namespace SlothUnitParser
 			clang.getExpansionLocation(clang.getCursorLocation(cursor), out file, out line, out column, out offset);
 			return Convert.ToInt32(line);
 		}
+
+		public static string GetCursorFilePath(CXCursor cursor)
+		{
+			CXFile file;
+			uint line, column, offset;
+			clang.getExpansionLocation(clang.getCursorLocation(cursor), out file, out line, out column, out offset);
+			return clang.getFileName(file).ToString();
+		}
 	}
 }
