@@ -13,14 +13,11 @@ namespace SlothUnitParser
 			var clangWrapper = new ClangWrapper();
 			var classesInFile = clangWrapper.GetClassCursorsIn(filePath);
 
-			foreach (var @class in classesInFile)
+			foreach (var classCursor in classesInFile)
 			{
-				var testMethodsInClass = clangWrapper.GetTestMethodsIn(@class);
+				var testMethodsInClass = clangWrapper.GetTestMethodsIn(classCursor);
 				if (testMethodsInClass.Any())
-				{
-					var className = ClangWrapper.GetCursorName(@class);
-					testFile.AddClass(new TestClass(className));
-				}
+					testFile.AddClass(TestClass.BuildFrom(classCursor));
 			}
 
 			clangWrapper.Dispose();

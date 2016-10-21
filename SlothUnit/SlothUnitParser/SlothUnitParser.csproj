@@ -74,6 +74,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlothParser.cs" />
     <Compile Include="StringHelper.cs" />
+    <Compile Include="TestClass.cs" />
+    <Compile Include="TestClasses.cs" />
     <Compile Include="TestFile.cs" />
   </ItemGroup>
   <ItemGroup>
