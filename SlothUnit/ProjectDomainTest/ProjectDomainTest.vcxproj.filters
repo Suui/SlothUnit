@@ -29,5 +29,8 @@
     <ClInclude Include="ClassShould.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ClangWrapperShould.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
