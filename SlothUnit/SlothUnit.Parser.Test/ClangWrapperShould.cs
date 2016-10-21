@@ -23,5 +23,15 @@ namespace SlothUnit.Parser.Test
 
 			ClangWrapper.GetCursorName(classCursor).Should().Be("ClangWrapperShould");
 		}
+
+		[Test]
+		public void retrieve_the_line_of_a_cursor()
+		{
+			var filePath = Path.Combine(TestProjectDir, "ClangWrapperShould.h");
+			var clangWrapper = new ClangWrapper();
+			var classCursor = clangWrapper.GetClassCursorsIn(filePath).Single();
+
+			ClangWrapper.GetCursorLine(classCursor).Should().Be(6);
+		}
 	}
 }

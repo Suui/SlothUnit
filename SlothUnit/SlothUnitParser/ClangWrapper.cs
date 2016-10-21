@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ClangSharp;
 
@@ -75,6 +76,14 @@ namespace SlothUnitParser
 
 			clang.visitChildren(cxCursor, visitor, new CXClientData());
 			return testMethodCursors;
+		}
+
+		public static int GetCursorLine(CXCursor cursor)
+		{
+			CXFile file;
+			uint line, column, offset;
+			clang.getExpansionLocation(clang.getCursorLocation(cursor), out file, out line, out column, out offset);
+			return Convert.ToInt32(line);
 		}
 	}
 }
