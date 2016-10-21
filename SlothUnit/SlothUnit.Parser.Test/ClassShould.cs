@@ -33,11 +33,5 @@ namespace SlothUnit.Parser.Test
 
 			testFile.TestClasses.Single().Name.Should().NotBe("ClassWithoutTestMethods");
 		}
-
-		[Test]
-		public void be_aware_of_its_()
-		{
-			
-		}
 	}
 }
