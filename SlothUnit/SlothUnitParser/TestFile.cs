@@ -1,4 +1,7 @@
-﻿namespace SlothUnitParser
+﻿using System.Collections.Generic;
+
+
+namespace SlothUnitParser
 {
 	public class TestFile
 	{
@@ -6,7 +9,7 @@
 		public string Path { get; }
 		public TestClasses TestClasses { get; }
 
-		public static TestFile BuildFrom(string filePath)
+		public static TestFile BuildFrom(string filePath, List<TestClass> classes)
 		{
 			var path = filePath;
 			var name = StringHelper.GetFileNameFrom(filePath);

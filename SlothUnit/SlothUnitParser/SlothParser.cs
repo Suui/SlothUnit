@@ -4,7 +4,11 @@
 	{
 		public TestFile TryGetTestFileFrom(string filePath)
 		{
-			return TestFile.BuildFrom(filePath);
+			var clangWrapper = ClangWrapper.For(filePath);
+
+			var testClasses = clangWrapper.RetrieveTestClasses();
+
+			return TestFile.BuildFrom(filePath, testClasses);
 		}
 	}
 }

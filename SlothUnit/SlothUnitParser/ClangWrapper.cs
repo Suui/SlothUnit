@@ -115,5 +115,10 @@ namespace SlothUnitParser
 			clang.getExpansionLocation(clang.getCursorLocation(cursor), out file, out line, out column, out offset);
 			return clang.getFileName(file).ToString();
 		}
+
+		public List<TestClass> RetrieveTestClasses()
+		{
+			return new List<TestClass>();
+		}
 	}
 }
