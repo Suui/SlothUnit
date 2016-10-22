@@ -38,11 +38,8 @@ namespace SlothUnit.Parser.Test
 		public void be_built_from_a_class_cursor()
 		{
 			var filePath = Path.Combine(TestProjectDir, "ClassShould.h");
-			var classCursor = new ClangWrapper().GetClassCursorsIn(filePath).First();
+			var testClass = ClangWrapper.GetTestClassesIn(filePath).Single();
 
-			var testClass = TestClass.BuildFrom(classCursor);
-
-			testClass.Cursor.Should().Be(classCursor);
 			testClass.Path.Should().Be(filePath);
 			testClass.Name.Should().Be("ClassShould");
 			testClass.Line.Should().Be(6);

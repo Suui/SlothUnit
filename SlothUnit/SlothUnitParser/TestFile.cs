@@ -10,7 +10,7 @@
 		{
 			var path = filePath;
 			var name = StringHelper.GetFileNameFrom(filePath);
-			var testClasses = new TestClasses(new ClangWrapper().GetTestClassesIn(filePath));
+			var testClasses = new TestClasses(ClangWrapper.GetTestClassesIn(filePath));
 			if (testClasses.Any())
 				return new TestFile(path, name, testClasses);
 

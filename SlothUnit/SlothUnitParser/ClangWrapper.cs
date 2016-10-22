@@ -8,34 +8,41 @@ namespace SlothUnitParser
 {
 	public class ClangWrapper
 	{
-		private string[] Arguments { get; } = { "-x", "c++", "-std=c++11", "-D__SLOTH_UNIT_PARSER__" };
-		private CXIndex Index { get; set; }
-		private CXTranslationUnit TranslationUnit { get; set; }
+		private CXIndex Index { get; }
+		private CXTranslationUnit TranslationUnit { get; }
+		private CXCursor Cursor { get; }
 
-		public List<TestClass> GetTestClassesIn(string filePath)
+		public static ClangWrapper For(string filePath)
 		{
-			var classesInFile = GetClassCursorsIn(filePath);
-
-			return classesInFile.Select(TestClass.BuildFrom)
-				.Where(Class.IsTestClass)
-				.ToList();
-		}
-
-		public CXCursor GetCursorForFile(string filePath)
-		{
+			var arguments = new[] { "-x", "c++", "-std=c++11", "-D__SLOTH_UNIT_PARSER__" };
 			CXUnsavedFile unsavedFile;
-			Index = clang.createIndex(0, 0);
-			TranslationUnit = clang.createTranslationUnitFromSourceFile(Index, filePath, Arguments.Length, Arguments, 0, out unsavedFile);
-			return clang.getTranslationUnitCursor(TranslationUnit);
+			var index = clang.createIndex(0, 0);
+			var translationUnit = clang.createTranslationUnitFromSourceFile(index, filePath, arguments.Length, arguments, 0, out unsavedFile);
+			var cursor = clang.getTranslationUnitCursor(translationUnit);
+
+			return new ClangWrapper(index, translationUnit, cursor);
 		}
 
-		public void Dispose()
+		public ClangWrapper(CXIndex index, CXTranslationUnit translationUnit, CXCursor cursor)
 		{
-			clang.disposeTranslationUnit(TranslationUnit);
-			clang.disposeIndex(Index);
+			Index = index;
+			TranslationUnit = translationUnit;
+			Cursor = cursor;
 		}
 
-		public List<CXCursor> GetClassCursorsIn(string filePath)
+		public static List<TestClass> GetTestClassesIn(string filePath)
+		{
+			var clangWrapper = For(filePath);
+
+			var classesInFile = clangWrapper.RetrieveClassCursors()
+											.Select(classCursor => TestClass.BuildFrom(classCursor, clangWrapper))
+											.Where(Class.IsTestClass)
+											.ToList();
+			clangWrapper.Dispose();
+			return classesInFile;
+		}
+
+		public List<CXCursor> RetrieveClassCursors()
 		{
 			var classCursors = new List<CXCursor>();
 
@@ -47,13 +54,8 @@ namespace SlothUnitParser
 				return CXChildVisitResult.CXChildVisit_Continue;
 			};
 
-			clang.visitChildren(GetCursorForFile(filePath), visitor, new CXClientData());
+			clang.visitChildren(Cursor, visitor, new CXClientData());
 			return classCursors;
-		}
-
-		public static string GetCursorName(CXCursor cursor)
-		{
-			return clang.getCursorSpelling(cursor).ToString();
 		}
 
 		public List<CXCursor> GetTestMethodsIn(CXCursor cxCursor)
@@ -85,6 +87,17 @@ namespace SlothUnitParser
 
 			clang.visitChildren(cxCursor, visitor, new CXClientData());
 			return testMethodCursors;
+		}
+
+		private void Dispose()
+		{
+			clang.disposeTranslationUnit(TranslationUnit);
+			clang.disposeIndex(Index);
+		}
+
+		public static string GetCursorName(CXCursor cursor)
+		{
+			return clang.getCursorSpelling(cursor).ToString();
 		}
 
 		public static int GetCursorLine(CXCursor cursor)

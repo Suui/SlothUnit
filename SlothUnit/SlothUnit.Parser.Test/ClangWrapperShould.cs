@@ -22,7 +22,7 @@ namespace SlothUnit.Parser.Test
 		public void given_a_class_cursor_in_a_file()
 		{
 			FilePath = Path.Combine(TestProjectDir, "ClangWrapperShould.h");
-			ClassCursor = new ClangWrapper().GetClassCursorsIn(FilePath).Single();
+			ClassCursor = ClangWrapper.For(FilePath).RetrieveClassCursors().Single();
 		}
 
 		[Test]

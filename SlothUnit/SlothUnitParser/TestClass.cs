@@ -11,12 +11,12 @@ namespace SlothUnitParser
 		public string Name { get; }
 		public int Line { get; }
 
-		public static TestClass BuildFrom(CXCursor classCursor)
+		public static TestClass BuildFrom(CXCursor classCursor, ClangWrapper clangWrapper)
 		{
 			var path = ClangWrapper.GetCursorFilePath(classCursor);
 			var name = ClangWrapper.GetCursorName(classCursor);
 			var line = ClangWrapper.GetCursorLine(classCursor);
-			var testMethods = new ClangWrapper().GetTestMethodsIn(classCursor);
+			var testMethods = clangWrapper.GetTestMethodsIn(classCursor);
 			if (testMethods.Any())
 				return new TestClass(classCursor, path, name, line);
 
