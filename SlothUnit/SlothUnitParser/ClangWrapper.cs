@@ -12,6 +12,15 @@ namespace SlothUnitParser
 		private CXIndex Index { get; set; }
 		private CXTranslationUnit TranslationUnit { get; set; }
 
+		public List<TestClass> GetTestClassesIn(string filePath)
+		{
+			var classesInFile = GetClassCursorsIn(filePath);
+
+			return classesInFile.Select(TestClass.BuildFrom)
+				.Where(Class.IsTestClass)
+				.ToList();
+		}
+
 		public CXCursor GetCursorForFile(string filePath)
 		{
 			CXUnsavedFile unsavedFile;

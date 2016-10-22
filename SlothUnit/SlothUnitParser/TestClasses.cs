@@ -6,12 +6,18 @@ namespace SlothUnitParser
 {
 	public class TestClasses
 	{
-		private List<TestClass> Classes { get; } = new List<TestClass>();
-
+		private List<TestClass> Classes { get; }
 		public int Count => Classes.Count;
 
-		public void Add(TestClass testClass) => Classes.Add(testClass);
+		public TestClasses(List<TestClass> testClasses)
+		{
+			Classes = testClasses;
+		}
+
+		public bool Any() => Classes.Any();
 
 		public TestClass Single() => Classes.Single();
+
+		public void Add(TestClass testClass) => Classes.Add(testClass);
 	}
 }

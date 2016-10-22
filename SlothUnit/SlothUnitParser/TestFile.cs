@@ -2,23 +2,32 @@
 {
 	public class TestFile
 	{
-		public string Name { get; set; }
-		public string Path { get; set; }
+		public string Name { get; }
+		public string Path { get; }
 		public TestClasses TestClasses { get; }
 
-		public TestFile(string filePath)
+		public static TestFile BuildFrom(string filePath)
 		{
-			Name = GetFileNameFrom(filePath);
-			Path = filePath;
-			TestClasses = new TestClasses();
+			var path = filePath;
+			var name = StringHelper.GetFileNameFrom(filePath);
+			var testClasses = new TestClasses(new ClangWrapper().GetTestClassesIn(filePath));
+			if (testClasses.Any())
+				return new TestFile(path, name, testClasses);
+
+			return new NoTestFile();
 		}
 
-		public void AddClass(TestClass testClass) => TestClasses.Add(testClass);
-
-		private string GetFileNameFrom(string filePath)
+		private TestFile(string path, string name, TestClasses testClasses)
 		{
-			var lastSlashIndex = filePath.LastIndexOf('\\');
-			return filePath.Substring(lastSlashIndex + 1);
+			Path = path;
+			Name = name;
+			TestClasses = testClasses;
 		}
+
+		protected TestFile() {}
+	}
+
+	public class NoTestFile : TestFile
+	{
 	}
 }
