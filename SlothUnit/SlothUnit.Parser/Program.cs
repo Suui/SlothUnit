@@ -2,7 +2,7 @@
 using ClangSharp;
 
 
-namespace SlothUnitParser
+namespace SlothUnit.Parser
 {
 	class Program
 	{
@@ -10,7 +10,7 @@ namespace SlothUnitParser
 		{
 			Console.WriteLine("Parsing the code...");
 
-			const string filePath = @"E:\Projects\CPP\SlothUnit\SlothUnit\ProjectDomainTest\TestClassShould.h";
+			const string filePath = @"E:\Projects\CPP\SlothUnit\SlothUnit\Project.Domain.Test\TestClassShould.h";
 			CXUnsavedFile unsavedFile;
 
 			var index = clang.createIndex(0, 0);

@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "../SlothUnit/SlothUnit.h"
-#include "../ProjectDomain/Calculator.h"
+#include "../Project.Domain/Calculator.h"
 
 using namespace SlothUnit;
 

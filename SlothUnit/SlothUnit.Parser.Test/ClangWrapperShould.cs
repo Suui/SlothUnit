@@ -3,8 +3,7 @@ using System.Linq;
 using ClangSharp;
 using FluentAssertions;
 using NUnit.Framework;
-using SlothUnitParser;
-using SlothUnitParser.Core;
+using SlothUnit.Parser.Core;
 
 
 namespace SlothUnit.Parser.Test

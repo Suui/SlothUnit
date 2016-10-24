@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using ClangSharp;
-using SlothUnitParser.Core.Collections;
+using SlothUnit.Parser.Core.Collections;
 
 
-namespace SlothUnitParser.Core.Elements
+namespace SlothUnit.Parser.Core.Elements
 {
 	public class TestMethod
 	{

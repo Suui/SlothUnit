@@ -7,8 +7,8 @@
     <ProjectGuid>{7A67C245-2895-4FF0-AAF7-3EBCD0E7CA9D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SlothUnitParser</RootNamespace>
-    <AssemblyName>SlothUnitParser</AssemblyName>
+    <RootNamespace>SlothUnit.Parser</RootNamespace>
+    <AssemblyName>SlothUnit.Parser</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

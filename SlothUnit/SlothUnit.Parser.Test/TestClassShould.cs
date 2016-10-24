@@ -1,9 +1,8 @@
 ﻿using System.IO;
 using FluentAssertions;
 using NUnit.Framework;
-using SlothUnitParser;
-using SlothUnitParser.Core;
-using SlothUnitParser.Core.Elements;
+using SlothUnit.Parser.Core;
+using SlothUnit.Parser.Core.Elements;
 
 
 namespace SlothUnit.Parser.Test

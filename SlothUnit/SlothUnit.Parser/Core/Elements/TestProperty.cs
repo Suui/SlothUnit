@@ -1,4 +1,4 @@
-﻿namespace SlothUnitParser.Core.Elements
+﻿namespace SlothUnit.Parser.Core.Elements
 {
 	public class TestProperty
 	{

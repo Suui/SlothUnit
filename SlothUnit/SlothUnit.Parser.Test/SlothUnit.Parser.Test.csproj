@@ -87,9 +87,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SlothUnitParser\SlothUnitParser.csproj">
+    <ProjectReference Include="..\SlothUnit.Parser\SlothUnit.Parser.csproj">
       <Project>{7A67C245-2895-4FF0-AAF7-3EBCD0E7CA9D}</Project>
-      <Name>SlothUnitParser</Name>
+      <Name>SlothUnit.Parser</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-namespace SlothUnitParser.Infrastructure
+namespace SlothUnit.Parser.Infrastructure
 {
 	public class StringHelper
 	{
