@@ -12,5 +12,7 @@ namespace SlothUnit.Parser.Core.Collections
 		{
 			Properties = testProperties;
 		}
+
+		public List<TestProperty> ToList() => Properties;
 	}
 }

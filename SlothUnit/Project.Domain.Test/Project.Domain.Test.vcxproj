@@ -163,6 +163,7 @@
     <ClInclude Include="TestClassShould.h" />
     <ClInclude Include="IncludedClass.h" />
     <ClInclude Include="TestFileShould.h" />
+    <ClInclude Include="TestMethodShould.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Project.Domain\Project.Domain.vcxproj">

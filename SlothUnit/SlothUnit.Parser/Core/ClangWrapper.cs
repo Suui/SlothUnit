@@ -51,15 +51,15 @@ namespace SlothUnit.Parser.Core
 
 		public List<TestProperty> RetrieveTestPropertiesIn(CXCursor methodCursor)
 		{
-			var attributes =  RetrieveAttributeCursorsIn(methodCursor)
-							 .Select(attributeCursor => GetCursorName(attributeCursor).Split(','))
-							 .Where(properties => properties.Contains("Test"))
-							 .ToList();
+			var testProperties = RetrieveAttributeCursorsIn(methodCursor)
+								.Select(AttributeProperties())
+								.Where(TheyContainATestProperty())
+								.ToList();
 
-			if (attributes.Any())
-				return attributes.Aggregate((properties, next) => properties.Concat(next).ToArray())
-								 .Select(property => new TestProperty(property))
-								 .ToList();
+			if (testProperties.Any())
+				return testProperties.Aggregate(InASingleArray())
+									 .Select(property => new TestProperty(property))
+									 .ToList();
 
 			return new List<TestProperty>();
 		}
@@ -145,6 +145,21 @@ namespace SlothUnit.Parser.Core
 			uint line, column, offset;
 			clang.getExpansionLocation(clang.getCursorLocation(cursor), out file, out line, out column, out offset);
 			return clang.getFileName(file).ToString();
+		}
+
+		private Func<CXCursor, string[]> AttributeProperties()
+		{
+			return attributeCursor => GetCursorName(attributeCursor).Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
+		}
+
+		private static Func<string[], string[], string[]> InASingleArray()
+		{
+			return (properties, next) => properties.Concat(next).ToArray();
+		}
+
+		private static Func<string[], bool> TheyContainATestProperty()
+		{
+			return properties => properties.Contains("Test");
 		}
 	}
 }
