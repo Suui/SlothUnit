@@ -29,13 +29,13 @@
     <ClInclude Include="TestFileShould.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ClassShould.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ClangWrapperShould.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IncludedClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestClassShould.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

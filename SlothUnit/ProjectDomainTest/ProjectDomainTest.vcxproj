@@ -160,7 +160,7 @@
   <ItemGroup>
     <ClInclude Include="CalculatorShould.h" />
     <ClInclude Include="ClangWrapperShould.h" />
-    <ClInclude Include="ClassShould.h" />
+    <ClInclude Include="TestClassShould.h" />
     <ClInclude Include="IncludedClass.h" />
     <ClInclude Include="TestFileShould.h" />
   </ItemGroup>

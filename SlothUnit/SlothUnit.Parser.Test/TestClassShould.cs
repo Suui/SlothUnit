@@ -7,7 +7,7 @@ using SlothUnitParser;
 namespace SlothUnit.Parser.Test
 {
 	[TestFixture]
-	public class ClassShould : FileSystemTest
+	public class TestClassShould : FileSystemTest
 	{
 		private string FilePath;
 		private TestFile TestFile;
@@ -15,14 +15,14 @@ namespace SlothUnit.Parser.Test
 		[SetUp]
 		public void given_a_test_file()
 		{
-			FilePath = Path.Combine(TestProjectDir, "ClassShould.h");
+			FilePath = Path.Combine(TestProjectDir, "TestClassShould.h");
 			TestFile = new SlothParser().TryGetTestFileFrom(FilePath);
 		}
 
 		[Test]
 		public void be_found_in_file()
 		{
-			TestFile.TestClasses.Single().Name.Should().Be("ClassShould");
+			TestFile.TestClasses.Single().Name.Should().Be("TestClassShould");
 		}
 
 		[Test]
@@ -31,7 +31,7 @@ namespace SlothUnit.Parser.Test
 			var testClass = TestFile.TestClasses.Single();
 
 			testClass.Path.Should().Be(FilePath);
-			testClass.Name.Should().Be("ClassShould");
+			testClass.Name.Should().Be("TestClassShould");
 			testClass.Line.Should().Be(7);
 		}
 
@@ -45,6 +45,12 @@ namespace SlothUnit.Parser.Test
 		public void be_avoided_if_it_is_included_from_another_file()
 		{
 			TestFile.TestClasses.Count.Should().Be(1);
+		}
+
+		[Test]
+		public void contain_only_the_test_methods()
+		{
+			
 		}
 	}
 }
