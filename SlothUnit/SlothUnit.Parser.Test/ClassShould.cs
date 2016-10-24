@@ -9,33 +9,34 @@ namespace SlothUnit.Parser.Test
 	[TestFixture]
 	public class ClassShould : FileSystemTest
 	{
+		private string FilePath;
+		private TestFile TestFile;
+
+		[SetUp]
+		public void given_a_test_file()
+		{
+			FilePath = Path.Combine(TestProjectDir, "ClassShould.h");
+			TestFile = new SlothParser().TryGetTestFileFrom(FilePath);
+		}
+
 		[Test]
 		public void be_found_in_file()
 		{
-			var filePath = Path.Combine(TestProjectDir, "ClassShould.h");
-
-			var testFile = new SlothParser().TryGetTestFileFrom(filePath);
-
-			testFile.TestClasses.Single().Name.Should().Be("ClassShould");
+			TestFile.TestClasses.Single().Name.Should().Be("ClassShould");
 		}
 
 		[Test]
 		public void only_be_retrieved_if_it_contains_test_methods()
 		{
-			var filePath = Path.Combine(TestProjectDir, "ClassShould.h");
-
-			var testFile = new SlothParser().TryGetTestFileFrom(filePath);
-
-			testFile.TestClasses.Single().Name.Should().NotBe("ClassWithoutTestMethods");
+			TestFile.TestClasses.Single().Name.Should().NotBe("ClassWithoutTestMethods");
 		}
 
 		[Test]
 		public void be_built_from_a_class_cursor()
 		{
-			var filePath = Path.Combine(TestProjectDir, "ClassShould.h");
-			var testClass = new SlothParser().TryGetTestFileFrom(filePath).TestClasses.Single();
+			var testClass = TestFile.TestClasses.Single();
 
-			testClass.Path.Should().Be(filePath);
+			testClass.Path.Should().Be(FilePath);
 			testClass.Name.Should().Be("ClassShould");
 			testClass.Line.Should().Be(6);
 		}
