@@ -30,23 +30,19 @@ namespace SlothUnitParser
 			Cursor = cursor;
 		}
 
-		public static List<TestClass> GetTestClassesIn(string filePath)
+		public List<TestClass> RetrieveTestClasses()
 		{
-			var clangWrapper = For(filePath);
-
-			var classesInFile = clangWrapper.RetrieveClassCursors()
-											.Select(classCursor => TestClass.BuildFrom(classCursor, clangWrapper))
-											.Where(Class.IsTestClass)
-											.ToList();
-			clangWrapper.Dispose();
-			return classesInFile;
+			return RetrieveClassCursors()
+				  .Select(classCursor => TestClass.BuildFrom(this, classCursor))
+				  .Where(Class.IsTestClass)
+				  .ToList();
 		}
 
 		public List<CXCursor> RetrieveClassCursors()
 		{
 			var classCursors = new List<CXCursor>();
 
-			CXCursorVisitor visitor = (cursor, parent, data) =>
+			CXCursorVisitor classVisitor = (cursor, parent, data) =>
 			{
 				if (cursor.kind == CXCursorKind.CXCursor_ClassDecl)
 					classCursors.Add(cursor);
@@ -54,53 +50,61 @@ namespace SlothUnitParser
 				return CXChildVisitResult.CXChildVisit_Continue;
 			};
 
-			clang.visitChildren(Cursor, visitor, new CXClientData());
+			clang.visitChildren(Cursor, classVisitor, new CXClientData());
 			return classCursors;
 		}
 
-		public List<CXCursor> GetTestMethodsIn(CXCursor cxCursor)
+		public List<CXCursor> RetrieveTestMethodsIn(CXCursor classCursor)
 		{
 			var testMethodCursors = new List<CXCursor>();
 
-			CXCursorVisitor visitor = (cursor, parent, data) =>
+			CXCursorVisitor methodVisitor = (cursor, parent, data) =>
 			{
 				if (cursor.kind == CXCursorKind.CXCursor_CXXMethod)
 				{
-					CXCursorVisitor methodVisitor = (cursorX, parentX, dataX) =>
-					{
-						if (cursorX.kind == CXCursorKind.CXCursor_AnnotateAttr)
-						{
-							var properties = GetCursorName(cursorX).Split(',').ToList();
-
-							if (properties.Contains("Test"))
-								testMethodCursors.Add(cursorX);
-						}
-
-						return CXChildVisitResult.CXChildVisit_Continue;
-					};
-
-					clang.visitChildren(cursor, methodVisitor, new CXClientData());
+					if (IsTestMethod(cursor))
+						testMethodCursors.Add(cursor);
 				}
 
 				return CXChildVisitResult.CXChildVisit_Continue;
 			};
 
-			clang.visitChildren(cxCursor, visitor, new CXClientData());
+			clang.visitChildren(classCursor, methodVisitor, new CXClientData());
 			return testMethodCursors;
 		}
 
-		private void Dispose()
+		private bool IsTestMethod(CXCursor methodCursor)
+		{
+			var isTestMethod = false;
+
+			CXCursorVisitor methodVisitor = (cursor, parent, data) =>
+			{
+				if (cursor.kind == CXCursorKind.CXCursor_AnnotateAttr)
+				{
+					var properties = GetCursorName(cursor).Split(',').ToList();
+					if (properties.Contains("Test"))
+						isTestMethod = true;
+				}
+
+				return CXChildVisitResult.CXChildVisit_Continue;
+			};
+
+			clang.visitChildren(methodCursor, methodVisitor, new CXClientData());
+			return isTestMethod;
+		}
+
+		public void Dispose()
 		{
 			clang.disposeTranslationUnit(TranslationUnit);
 			clang.disposeIndex(Index);
 		}
 
-		public static string GetCursorName(CXCursor cursor)
+		public string GetCursorName(CXCursor cursor)
 		{
 			return clang.getCursorSpelling(cursor).ToString();
 		}
 
-		public static int GetCursorLine(CXCursor cursor)
+		public int GetCursorLine(CXCursor cursor)
 		{
 			CXFile file;
 			uint line, column, offset;
@@ -108,17 +112,12 @@ namespace SlothUnitParser
 			return Convert.ToInt32(line);
 		}
 
-		public static string GetCursorFilePath(CXCursor cursor)
+		public string GetCursorFilePath(CXCursor cursor)
 		{
 			CXFile file;
 			uint line, column, offset;
 			clang.getExpansionLocation(clang.getCursorLocation(cursor), out file, out line, out column, out offset);
 			return clang.getFileName(file).ToString();
-		}
-
-		public List<TestClass> RetrieveTestClasses()
-		{
-			return new List<TestClass>();
 		}
 	}
 }

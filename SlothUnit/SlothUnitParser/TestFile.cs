@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 
 
 namespace SlothUnitParser
@@ -9,15 +9,15 @@ namespace SlothUnitParser
 		public string Path { get; }
 		public TestClasses TestClasses { get; }
 
-		public static TestFile BuildFrom(string filePath, List<TestClass> classes)
+		public static TestFile BuildFrom(string filePath, ClangWrapper clangWrapper)
 		{
 			var path = filePath;
 			var name = StringHelper.GetFileNameFrom(filePath);
-			var testClasses = new TestClasses(ClangWrapper.GetTestClassesIn(filePath));
+			var testClasses = clangWrapper.RetrieveTestClasses();
 			if (testClasses.Any())
-				return new TestFile(path, name, testClasses);
+				return new TestFile(path, name, new TestClasses(testClasses));
 
-			return new NoTestFile();
+			return new File();
 		}
 
 		private TestFile(string path, string name, TestClasses testClasses)
@@ -30,7 +30,11 @@ namespace SlothUnitParser
 		protected TestFile() {}
 	}
 
-	public class NoTestFile : TestFile
+	public class File : TestFile
 	{
+		public static bool IsTestFile(TestFile testFile)
+		{
+			return testFile.GetType() == typeof(TestFile);
+		}
 	}
 }

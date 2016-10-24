@@ -6,9 +6,10 @@
 		{
 			var clangWrapper = ClangWrapper.For(filePath);
 
-			var testClasses = clangWrapper.RetrieveTestClasses();
+			var testFile = TestFile.BuildFrom(filePath, clangWrapper);
 
-			return TestFile.BuildFrom(filePath, testClasses);
+			clangWrapper.Dispose();
+			return testFile;
 		}
 	}
 }

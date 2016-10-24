@@ -6,23 +6,21 @@ using NUnit.Framework;
 using SlothUnitParser;
 
 
-/* TODO
-	
-*/
-
 namespace SlothUnit.Parser.Test
 {
 	[TestFixture]
 	class ClangWrapperShould : FileSystemTest
 	{
-		private CXCursor ClassCursor { get; set; }
-		private string FilePath { get; set; }
+		private ClangWrapper ClangWrapper;
+		private CXCursor ClassCursor;
+		private string FilePath;
 
 		[SetUp]
 		public void given_a_class_cursor_in_a_file()
 		{
 			FilePath = Path.Combine(TestProjectDir, "ClangWrapperShould.h");
-			ClassCursor = ClangWrapper.For(FilePath).RetrieveClassCursors().Single();
+			ClangWrapper = ClangWrapper.For(FilePath);
+			ClassCursor = ClangWrapper.RetrieveClassCursors().Single();
 		}
 
 		[Test]
