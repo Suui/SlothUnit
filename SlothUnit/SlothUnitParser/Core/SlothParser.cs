@@ -1,4 +1,7 @@
-﻿namespace SlothUnitParser
+﻿using SlothUnitParser.Core.Elements;
+
+
+namespace SlothUnitParser.Core
 {
 	public class SlothParser
 	{

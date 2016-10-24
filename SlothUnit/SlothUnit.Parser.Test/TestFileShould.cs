@@ -2,6 +2,8 @@
 using FluentAssertions;
 using NUnit.Framework;
 using SlothUnitParser;
+using SlothUnitParser.Core;
+using SlothUnitParser.Core.Elements;
 
 
 /* TODO

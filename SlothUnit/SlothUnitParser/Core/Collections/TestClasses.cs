@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using SlothUnitParser.Core.Elements;
 
 
-namespace SlothUnitParser
+namespace SlothUnitParser.Core.Collections
 {
 	public class TestClasses
 	{

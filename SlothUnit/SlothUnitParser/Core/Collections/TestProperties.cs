@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using SlothUnitParser.Core.Elements;
 
 
-namespace SlothUnitParser
+namespace SlothUnitParser.Core.Collections
 {
 	public class TestProperties
 	{

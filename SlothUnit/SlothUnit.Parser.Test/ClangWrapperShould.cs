@@ -4,6 +4,7 @@ using ClangSharp;
 using FluentAssertions;
 using NUnit.Framework;
 using SlothUnitParser;
+using SlothUnitParser.Core;
 
 
 namespace SlothUnit.Parser.Test
