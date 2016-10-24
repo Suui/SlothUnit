@@ -20,34 +20,6 @@ namespace SlothUnit.Parser.Test
 		}
 
 		[Test]
-		public void be_found_in_file()
-		{
-			TestFile.TestClasses.Single().Name.Should().Be("TestClassShould");
-		}
-
-		[Test]
-		public void be_built_from_a_class_cursor()
-		{
-			var testClass = TestFile.TestClasses.Single();
-
-			testClass.Path.Should().Be(FilePath);
-			testClass.Name.Should().Be("TestClassShould");
-			testClass.Line.Should().Be(7);
-		}
-
-		[Test]
-		public void only_be_retrieved_if_it_contains_test_methods()
-		{
-			TestFile.TestClasses.Single().Name.Should().NotBe("ClassWithoutTestMethods");
-		}
-
-		[Test]
-		public void be_avoided_if_it_is_included_from_another_file()
-		{
-			TestFile.TestClasses.Count.Should().Be(1);
-		}
-
-		[Test]
 		public void contain_only_the_test_methods()
 		{
 			
