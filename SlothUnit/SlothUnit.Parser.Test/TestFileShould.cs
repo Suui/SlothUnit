@@ -38,7 +38,7 @@ namespace SlothUnit.Parser.Test
 
 			testClass.Name.Should().Be("TestClassShould");
 			testClass.Path.Should().Be(FilePath);
-			testClass.Line.Should().Be(7);
+			testClass.Line.Should().Be(6);
 		}
 	}
 }

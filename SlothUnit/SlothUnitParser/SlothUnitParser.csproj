@@ -78,6 +78,10 @@
     <Compile Include="TestClass.cs" />
     <Compile Include="TestClasses.cs" />
     <Compile Include="TestFile.cs" />
+    <Compile Include="TestMethod.cs" />
+    <Compile Include="TestMethods.cs" />
+    <Compile Include="TestProperties.cs" />
+    <Compile Include="TestProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

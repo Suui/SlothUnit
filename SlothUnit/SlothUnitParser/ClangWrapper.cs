@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using ClangSharp;
 
 
@@ -40,6 +41,29 @@ namespace SlothUnitParser
 				  .ToList();
 		}
 
+		public List<TestMethod> RetrieveTestMethodsIn(CXCursor classCursor)
+		{
+			return RetrieveMethodCursorsIn(classCursor)
+				  .Select(methodCursor => TestMethod.BuildFrom(this, methodCursor))
+				  .Where(Method.IsTestMethod)
+				  .ToList();
+		}
+
+		public List<TestProperty> RetrieveTestPropertiesIn(CXCursor methodCursor)
+		{
+			var attributes =  RetrieveAttributeCursorsIn(methodCursor)
+							 .Select(attributeCursor => GetCursorName(attributeCursor).Split(','))
+							 .Where(properties => properties.Contains("Test"))
+							 .ToList();
+
+			if (attributes.Any())
+				return attributes.Aggregate((properties, next) => properties.Concat(next).ToArray())
+								 .Select(property => new TestProperty(property))
+								 .ToList();
+
+			return new List<TestProperty>();
+		}
+
 		public List<CXCursor> RetrieveClassCursors()
 		{
 			var classCursors = new List<CXCursor>();
@@ -48,7 +72,7 @@ namespace SlothUnitParser
 			{
 				if (cursor.kind == CXCursorKind.CXCursor_ClassDecl)
 				{
-					if (ItIsAnIncludedClass(cursor))
+					if (ItIsNotAnIncludedClass(cursor))
 						classCursors.Add(cursor);
 				}
 
@@ -59,48 +83,41 @@ namespace SlothUnitParser
 			return classCursors;
 		}
 
-		private bool ItIsAnIncludedClass(CXCursor classCursor)
+		private bool ItIsNotAnIncludedClass(CXCursor classCursor)
 		{
 			return FilePath == GetCursorFilePath(classCursor);
 		}
 
-		public List<CXCursor> RetrieveTestMethodsIn(CXCursor classCursor)
+		public List<CXCursor> RetrieveMethodCursorsIn(CXCursor classCursor)
 		{
-			var testMethodCursors = new List<CXCursor>();
+			var methodCursors = new List<CXCursor>();
 
 			CXCursorVisitor methodVisitor = (cursor, parent, data) =>
 			{
 				if (cursor.kind == CXCursorKind.CXCursor_CXXMethod)
-				{
-					if (ItIsATestMethod(cursor))
-						testMethodCursors.Add(cursor);
-				}
+					methodCursors.Add(cursor);
 
 				return CXChildVisitResult.CXChildVisit_Continue;
 			};
 
 			clang.visitChildren(classCursor, methodVisitor, new CXClientData());
-			return testMethodCursors;
+			return methodCursors;
 		}
 
-		private bool ItIsATestMethod(CXCursor methodCursor)
+		private List<CXCursor> RetrieveAttributeCursorsIn(CXCursor methodCursor)
 		{
-			var isTestMethod = false;
+			var attributeCursors = new List<CXCursor>();
 
 			CXCursorVisitor methodVisitor = (cursor, parent, data) =>
 			{
 				if (cursor.kind == CXCursorKind.CXCursor_AnnotateAttr)
-				{
-					var properties = GetCursorName(cursor).Split(',').ToList();
-					if (properties.Contains("Test"))
-						isTestMethod = true;
-				}
+					attributeCursors.Add(cursor);
 
 				return CXChildVisitResult.CXChildVisit_Continue;
 			};
 
 			clang.visitChildren(methodCursor, methodVisitor, new CXClientData());
-			return isTestMethod;
+			return attributeCursors;
 		}
 
 		public void Dispose()

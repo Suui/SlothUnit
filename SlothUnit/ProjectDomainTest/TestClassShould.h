@@ -1,6 +1,5 @@
 #pragma once
 #include "../SlothUnit/SlothUnit.h"
-#include "IncludedClass.h"
 
 using namespace SlothUnit;
 
@@ -9,14 +8,10 @@ class TestClassShould
 public:
 
 	Test()
-	void test_method()
-	{
-		IncludedClass().DummyFunction();
-	}
-};
+	void test_method() {}
 
-class ClassWithoutTestMethods
-{
-public:
+	void normal_method() {}
 
+	Test()
+	void another_test_method() {}
 };

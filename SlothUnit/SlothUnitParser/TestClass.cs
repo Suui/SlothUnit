@@ -9,6 +9,7 @@ namespace SlothUnitParser
 		public string Path { get; }
 		public string Name { get; }
 		public int Line { get; }
+		public TestMethods TestMethods { get; }
 
 		public static TestClass BuildFrom(ClangWrapper clangWrapper, CXCursor classCursor)
 		{
@@ -17,16 +18,17 @@ namespace SlothUnitParser
 			var line = clangWrapper.GetCursorLine(classCursor);
 			var testMethods = clangWrapper.RetrieveTestMethodsIn(classCursor);
 			if (testMethods.Any())
-				return new TestClass(path, name, line);
+				return new TestClass(path, name, line, new TestMethods(testMethods));
 
 			return new Class();
 		}
 
-		private TestClass(string path, string name, int line)
+		private TestClass(string path, string name, int line, TestMethods testMethods)
 		{
 			Path = path;
 			Name = name;
 			Line = line;
+			TestMethods = testMethods;
 		}
 
 		protected TestClass() {}
