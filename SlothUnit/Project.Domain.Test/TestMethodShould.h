@@ -10,4 +10,4 @@ public:
 	Test(ThreeProperties)
 	Test(OneProperty, TwoProperties)
 	void test_method() {}
-}
+};
