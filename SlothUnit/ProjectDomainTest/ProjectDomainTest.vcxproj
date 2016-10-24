@@ -154,12 +154,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="IncludedClass.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculatorShould.h" />
     <ClInclude Include="ClangWrapperShould.h" />
     <ClInclude Include="ClassShould.h" />
+    <ClInclude Include="IncludedClass.h" />
     <ClInclude Include="TestFileShould.h" />
   </ItemGroup>
   <ItemGroup>

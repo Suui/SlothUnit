@@ -10,7 +10,7 @@ namespace SlothUnitParser
 		{
 			Console.WriteLine("Parsing the code...");
 
-			const string filePath = @"E:\Projects\CPP\SlothUnit\SlothUnit\ProjectDomainTest\CalculatorShould.h";
+			const string filePath = @"E:\Projects\CPP\SlothUnit\SlothUnit\ProjectDomainTest\ClassShould.h";
 			CXUnsavedFile unsavedFile;
 
 			var index = clang.createIndex(0, 0);

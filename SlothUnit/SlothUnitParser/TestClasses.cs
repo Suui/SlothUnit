@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 
@@ -19,5 +20,7 @@ namespace SlothUnitParser
 		public TestClass Single() => Classes.Single();
 
 		public void Add(TestClass testClass) => Classes.Add(testClass);
+
+		public void ForEach(Action<TestClass> action) => Classes.ForEach(action);
 	}
 }

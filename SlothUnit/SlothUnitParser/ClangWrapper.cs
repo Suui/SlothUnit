@@ -8,6 +8,7 @@ namespace SlothUnitParser
 {
 	public class ClangWrapper
 	{
+		public string FilePath { get; set; }
 		private CXIndex Index { get; }
 		private CXTranslationUnit TranslationUnit { get; }
 		private CXCursor Cursor { get; }
@@ -20,11 +21,12 @@ namespace SlothUnitParser
 			var translationUnit = clang.createTranslationUnitFromSourceFile(index, filePath, arguments.Length, arguments, 0, out unsavedFile);
 			var cursor = clang.getTranslationUnitCursor(translationUnit);
 
-			return new ClangWrapper(index, translationUnit, cursor);
+			return new ClangWrapper(filePath, index, translationUnit, cursor);
 		}
 
-		public ClangWrapper(CXIndex index, CXTranslationUnit translationUnit, CXCursor cursor)
+		public ClangWrapper(string filePath, CXIndex index, CXTranslationUnit translationUnit, CXCursor cursor)
 		{
+			FilePath = filePath;
 			Index = index;
 			TranslationUnit = translationUnit;
 			Cursor = cursor;
@@ -45,13 +47,21 @@ namespace SlothUnitParser
 			CXCursorVisitor classVisitor = (cursor, parent, data) =>
 			{
 				if (cursor.kind == CXCursorKind.CXCursor_ClassDecl)
-					classCursors.Add(cursor);
+				{
+					if (ItIsAnIncludedClass(cursor))
+						classCursors.Add(cursor);
+				}
 
 				return CXChildVisitResult.CXChildVisit_Continue;
 			};
 
 			clang.visitChildren(Cursor, classVisitor, new CXClientData());
 			return classCursors;
+		}
+
+		private bool ItIsAnIncludedClass(CXCursor classCursor)
+		{
+			return FilePath == GetCursorFilePath(classCursor);
 		}
 
 		public List<CXCursor> RetrieveTestMethodsIn(CXCursor classCursor)
@@ -62,7 +72,7 @@ namespace SlothUnitParser
 			{
 				if (cursor.kind == CXCursorKind.CXCursor_CXXMethod)
 				{
-					if (IsTestMethod(cursor))
+					if (ItIsATestMethod(cursor))
 						testMethodCursors.Add(cursor);
 				}
 
@@ -73,7 +83,7 @@ namespace SlothUnitParser
 			return testMethodCursors;
 		}
 
-		private bool IsTestMethod(CXCursor methodCursor)
+		private bool ItIsATestMethod(CXCursor methodCursor)
 		{
 			var isTestMethod = false;
 
