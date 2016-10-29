@@ -7,7 +7,7 @@ using SlothUnit.Parser.Core.Elements;
 
 namespace SlothUnit.Parser.Core
 {
-	public class ClangWrapper
+	public class ClangWrapper : IDisposable
 	{
 		public string FilePath { get; set; }
 		private CXIndex Index { get; }

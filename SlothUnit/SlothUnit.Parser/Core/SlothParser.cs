@@ -7,12 +7,10 @@ namespace SlothUnit.Parser.Core
 	{
 		public TestFile TryGetTestFileFrom(string filePath)
 		{
-			var clangWrapper = ClangWrapper.For(filePath);
-
-			var testFile = TestFile.BuildFrom(filePath, clangWrapper);
-
-			clangWrapper.Dispose();
-			return testFile;
+			using (var clangWrapper = ClangWrapper.For(filePath))
+			{
+				return TestFile.BuildFrom(filePath, clangWrapper);
+			}
 		}
 	}
 }
