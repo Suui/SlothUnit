@@ -9,6 +9,12 @@ namespace SlothUnit.Parser.Core
 {
 	public class SlothParser
 	{
+		public static TestFiles RetrieveTestFilesIn(string rootPath)
+		{
+			var slothParser = new SlothParser();
+			return new TestFiles(slothParser.RetrieveTestFilesFrom(rootPath));
+		}
+
 		public List<TestFile> RetrieveTestFilesFrom(string path)
 		{
 			var testFiles = Directory.GetFiles(path)
