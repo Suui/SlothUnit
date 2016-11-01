@@ -28,11 +28,11 @@ namespace SlothUnit.Parser.Test
 			testClass.TestMethods.Count.Should().Be(2);
 			testClass.TestMethods[0].Name.Should().Be("test_method");
 			testClass.TestMethods[0].Path.Should().Be(FilePath);
-			testClass.TestMethods[0].Line.Should().Be(11);
+			testClass.TestMethods[0].Line.Should().Be(12);
 
 			testClass.TestMethods[1].Name.Should().Be("another_test_method");
 			testClass.TestMethods[1].Path.Should().Be(FilePath);
-			testClass.TestMethods[1].Line.Should().Be(16);
+			testClass.TestMethods[1].Line.Should().Be(17);
 		}
 	}
 }

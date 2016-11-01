@@ -5,10 +5,6 @@ using SlothUnit.Parser.Core;
 using SlothUnit.Parser.Core.Elements;
 
 
-/* TODO
-	- Get test method, its name, line, class and fileName
-*/
-
 namespace SlothUnit.Parser.Test
 {
 	[TestFixture]
@@ -39,7 +35,7 @@ namespace SlothUnit.Parser.Test
 
 			testClass.Name.Should().Be("TestClassShould");
 			testClass.Path.Should().Be(FilePath);
-			testClass.Line.Should().Be(6);
+			testClass.Line.Should().Be(7);
 		}
 	}
 }
