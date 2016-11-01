@@ -155,7 +155,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="IncludedClass.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="__Generated__\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculatorShould.h" />
