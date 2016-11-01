@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClangWrapperShould.cs" />
+    <Compile Include="SlothParserShould.cs" />
     <Compile Include="TestClassShould.cs" />
     <Compile Include="FileSystemTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

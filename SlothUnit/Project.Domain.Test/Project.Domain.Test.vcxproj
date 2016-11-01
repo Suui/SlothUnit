@@ -160,6 +160,17 @@
   <ItemGroup>
     <ClInclude Include="CalculatorShould.h" />
     <ClInclude Include="ClangWrapperShould.h" />
+    <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFile.h" />
+    <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubFile.h" />
+    <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubTestFile.h" />
+    <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubTestFile.h" />
+    <ClInclude Include="SlothParserShould\SubFolder\SubSubFile.h" />
+    <ClInclude Include="SlothParserShould\SubFolder\SubSubFolder\SubSubFile.h" />
+    <ClInclude Include="SlothParserShould\SubFolder\SubSubFolder\SubSubTestFile.h" />
+    <ClInclude Include="SlothParserShould\SubFolder\SubSubTestFile.h" />
+    <ClInclude Include="SlothParserShould\TopFile.h" />
+    <ClInclude Include="SlothParserShould\TopTestFile.h" />
+    <ClInclude Include="SlothParserShould\TopTestFileTwo.h" />
     <ClInclude Include="TestClassShould.h" />
     <ClInclude Include="IncludedClass.h" />
     <ClInclude Include="TestFileShould.h" />

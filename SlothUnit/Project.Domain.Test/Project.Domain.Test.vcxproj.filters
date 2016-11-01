@@ -41,5 +41,38 @@
     <ClInclude Include="TestMethodShould.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SlothParserShould\TopTestFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SlothParserShould\TopFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SlothParserShould\TopTestFileTwo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SlothParserShould\SubFolder\SubSubFolder\SubSubFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SlothParserShould\SubFolder\SubSubFolder\SubSubTestFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SlothParserShould\SubFolder\SubSubFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SlothParserShould\SubFolder\SubSubTestFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubTestFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubTestFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
