@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using SlothUnit.Parser.Core.Collections;
 using SlothUnit.Parser.Core.Elements;
 using File = SlothUnit.Parser.Core.Elements.File;
 
@@ -37,17 +38,6 @@ namespace SlothUnit.Parser.Core
 			{
 				return TestFile.BuildFrom(filePath, clangWrapper);
 			}
-		}
-	}
-
-	public class TestFiles
-	{
-		private List<TestFile> Files { get; }
-		public int Count => Files.Count;
-
-		public TestFiles(List<TestFile> testFiles)
-		{
-			Files = testFiles;
 		}
 	}
 }
