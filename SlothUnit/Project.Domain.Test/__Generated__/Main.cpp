@@ -1,8 +1,7 @@
-#include "../CalculatorShould.h"
+#include "SlothTests.h"
 
 int main()
 {
-	auto calculatorShould = CalculatorShould();
-	calculatorShould.return_four_when_adding_two_plus_two();
+	SlothTests::Run();
 	return 0;
 }

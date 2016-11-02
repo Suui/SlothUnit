@@ -156,10 +156,12 @@
   <ItemGroup>
     <ClCompile Include="IncludedClass.cpp" />
     <ClCompile Include="__Generated__\Main.cpp" />
+    <ClCompile Include="__Generated__\SlothTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculatorShould.h" />
     <ClInclude Include="ClangWrapperShould.h" />
+    <ClInclude Include="CodeGenerationShould\CalculatorShould.h" />
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFile.h" />
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubFile.h" />
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubTestFile.h" />
@@ -175,6 +177,9 @@
     <ClInclude Include="IncludedClass.h" />
     <ClInclude Include="TestFileShould.h" />
     <ClInclude Include="TestMethodShould.h" />
+    <ClInclude Include="__Generated__\SlothTests.h" />
+    <ClInclude Include="__Generated__\TestClass.h" />
+    <ClInclude Include="__Generated__\TestMethod.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Project.Domain\Project.Domain.vcxproj">
