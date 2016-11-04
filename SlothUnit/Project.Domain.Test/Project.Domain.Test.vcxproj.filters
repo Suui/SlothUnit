@@ -89,5 +89,11 @@
     <ClInclude Include="CodeGenerationShould\CalculatorShould.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="__Generated__\Runnable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="__Generated__\TestRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

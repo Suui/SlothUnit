@@ -177,6 +177,8 @@
     <ClInclude Include="IncludedClass.h" />
     <ClInclude Include="TestFileShould.h" />
     <ClInclude Include="TestMethodShould.h" />
+    <ClInclude Include="__Generated__\TestRepository.h" />
+    <ClInclude Include="__Generated__\Runnable.h" />
     <ClInclude Include="__Generated__\SlothTests.h" />
     <ClInclude Include="__Generated__\TestClass.h" />
     <ClInclude Include="__Generated__\TestMethod.h" />

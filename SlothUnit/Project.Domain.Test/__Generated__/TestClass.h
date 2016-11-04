@@ -3,11 +3,13 @@
 #include <unordered_map>
 #include <iostream>
 #include <string>
+#include "Header.h"
+#include "Runnable.h"
 
 using namespace SlothUnit;
 
 template<class T>
-class TestClass
+class TestClass : public Runnable
 {
 public:
 
@@ -24,6 +26,7 @@ public:
 		{
 			TestMethods.emplace(testFunction.first, std::bind(testFunction.second, testClass));
 			std::cout << name << "::" << testFunction.first << " registered" << std::endl;
+			TestRepository::Register(this);
 		}
 	}
 };

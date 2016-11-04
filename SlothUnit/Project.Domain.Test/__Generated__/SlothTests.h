@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#define RegisterTestClass(path, className, methods...) 
+#define RegisterTestClass(path, className, ...)
 
 class SlothTests
 {
