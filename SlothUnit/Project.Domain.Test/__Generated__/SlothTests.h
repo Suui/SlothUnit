@@ -1,16 +1,6 @@
 ﻿#pragma once
-#include <iostream>
 
-class Initialize
-{
-public:
-
-	Initialize()
-	{
-		std::cout << "Initialized!" << std::endl;
-	}
-
-};
+#define RegisterTestClass(path, className, methods...) 
 
 class SlothTests
 {
