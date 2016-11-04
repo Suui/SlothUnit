@@ -2,10 +2,11 @@
 
 #include "Exports.h"
 #include "Assertion.h"
+#include <functional>
 
 namespace SlothUnit
 {
-	#define TestClass(...) Attribute(TEST_CLASS_MUTHAFUCKA, __VA_ARGS__)
+	typedef std::function<void()> TestFunction;
 	#define Test(...) Attribute(Test, __VA_ARGS__)
 
 #if defined(__SLOTH_UNIT_PARSER__)

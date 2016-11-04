@@ -1,18 +1,27 @@
 ﻿#pragma once
-#include <vector>
-#include "TestMethod.h"
+#include "../../SlothUnit/SlothUnit.h"
+#include <unordered_map>
+#include <iostream>
 
+using namespace SlothUnit;
+
+template<class T>
 class TestClass
 {
 public:
 
 	std::string Path;
 	std::string Name;
-	std::vector<TestMethod> TestMethods;
+	std::unordered_map<std::string, TestFunction> TestMethods;
 
-
-	TestClass(const std::string& Path, const std::string& Name, const std::vector<TestMethod>& TestMethods)
-		: Path(Path),
-		  Name(Name),
-		  TestMethods(TestMethods) {}
+	typedef void (T::*TestMethod)();
+	TestClass(const std::string& path, const std::string& name, T testClass, std::unordered_map<std::string, TestMethod> testFunctions)
+	{
+		Path = path;
+		Name = name;
+		for (auto testFunction : testFunctions)
+		{
+			TestMethods.emplace(testFunction.first, std::bind(testFunction.second, testClass));
+		}
+	}
 };
