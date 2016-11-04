@@ -2,6 +2,7 @@
 #include "../../SlothUnit/SlothUnit.h"
 #include <unordered_map>
 #include <iostream>
+#include <string>
 
 using namespace SlothUnit;
 
@@ -22,6 +23,7 @@ public:
 		for (auto testFunction : testFunctions)
 		{
 			TestMethods.emplace(testFunction.first, std::bind(testFunction.second, testClass));
+			std::cout << name << "::" << testFunction.first << " registered" << std::endl;
 		}
 	}
 };
