@@ -1,6 +1,6 @@
 #pragma once
-#include "TestClass.h"
-#include "TestRegistrar.h"
+
+#include "SlothTests.hpp"
 #include "../CalculatorShould.h"
 
 auto registrar = TestRegistrar(TestClass<CalculatorShould>

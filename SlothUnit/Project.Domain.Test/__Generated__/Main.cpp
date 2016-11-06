@@ -1,4 +1,4 @@
-#include "SlothTests.h"
+#include "SlothTests.hpp"
 #include "CalculatorShould.generated.h"
 
 int main()

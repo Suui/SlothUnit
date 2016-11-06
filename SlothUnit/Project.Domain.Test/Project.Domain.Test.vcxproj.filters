@@ -74,25 +74,13 @@
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubTestFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="__Generated__\TestClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="__Generated__\TestMethod.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CodeGenerationShould\CalculatorShould.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="__Generated__\TestRegistrar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="__Generated__\TestRunnable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="__Generated__\CalculatorShould.generated.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="__Generated__\SlothTests.h">
+    <ClInclude Include="__Generated__\SlothTests.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

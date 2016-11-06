@@ -149,6 +149,8 @@
     <ClInclude Include="Assertion.h" />
     <ClInclude Include="Exports.h" />
     <ClInclude Include="SlothUnit.h" />
+    <ClInclude Include="TestClass.h" />
+    <ClInclude Include="TestRunnable.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Assertion.cpp" />
