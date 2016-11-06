@@ -1,5 +1,4 @@
 ﻿#pragma once
-
 #include "TestRunnable.h"
 #include <unordered_map>
 

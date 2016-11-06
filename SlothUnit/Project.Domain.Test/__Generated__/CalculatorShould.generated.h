@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../CalculatorShould.h"
 
 auto registrar = TestRegistrar(TestClass<CalculatorShould>

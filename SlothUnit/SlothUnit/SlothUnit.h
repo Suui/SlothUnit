@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Exports.h"
 #include "TestRunnable.h"
 #include "TestClass.h"

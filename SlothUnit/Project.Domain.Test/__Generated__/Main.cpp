@@ -1,5 +1,5 @@
 #include "../../SlothUnit/SlothUnit.h"
-#include "CalculatorShould.generated.h"
+#include "Tests.generated.h"
 
 using namespace SlothUnit;
 

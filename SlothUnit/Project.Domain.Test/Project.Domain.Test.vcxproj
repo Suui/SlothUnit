@@ -183,6 +183,9 @@
       <Project>{09bd1753-4863-44cb-ae84-463fd1013c57}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="__Generated__\Tests.generated.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
