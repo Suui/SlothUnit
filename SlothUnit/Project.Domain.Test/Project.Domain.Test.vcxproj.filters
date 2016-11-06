@@ -80,8 +80,5 @@
     <ClInclude Include="__Generated__\CalculatorShould.generated.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="__Generated__\SlothTests.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

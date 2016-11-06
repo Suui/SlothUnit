@@ -1,6 +1,5 @@
 #pragma once
 
-#include "SlothTests.hpp"
 #include "../CalculatorShould.h"
 
 auto registrar = TestRegistrar(TestClass<CalculatorShould>

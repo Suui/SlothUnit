@@ -177,7 +177,6 @@
     <ClInclude Include="TestFileShould.h" />
     <ClInclude Include="TestMethodShould.h" />
     <ClInclude Include="__Generated__\CalculatorShould.generated.h" />
-    <ClInclude Include="__Generated__\SlothTests.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Project.Domain\Project.Domain.vcxproj">

@@ -148,13 +148,17 @@
   <ItemGroup>
     <ClInclude Include="Assertion.h" />
     <ClInclude Include="Exports.h" />
+    <ClInclude Include="SlothTests.h" />
     <ClInclude Include="SlothUnit.h" />
     <ClInclude Include="TestClass.h" />
+    <ClInclude Include="TestRegistrar.h" />
     <ClInclude Include="TestRunnable.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Assertion.cpp" />
+    <ClCompile Include="SlothTests.cpp" />
     <ClCompile Include="SlothUnit.cpp" />
+    <ClCompile Include="TestRegistrar.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
