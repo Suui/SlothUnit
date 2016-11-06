@@ -1,7 +1,8 @@
 #include "SlothTests.h"
+#include "CalculatorShould.generated.h"
 
 int main()
 {
-	SlothTests::Run();
+	SlothTests::ExecuteAll();
 	return 0;
 }

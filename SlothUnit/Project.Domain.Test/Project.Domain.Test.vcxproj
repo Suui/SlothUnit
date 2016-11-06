@@ -156,7 +156,6 @@
   <ItemGroup>
     <ClCompile Include="IncludedClass.cpp" />
     <ClCompile Include="__Generated__\Main.cpp" />
-    <ClCompile Include="__Generated__\SlothTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculatorShould.h" />
@@ -177,9 +176,10 @@
     <ClInclude Include="IncludedClass.h" />
     <ClInclude Include="TestFileShould.h" />
     <ClInclude Include="TestMethodShould.h" />
-    <ClInclude Include="__Generated__\TestRepository.h" />
-    <ClInclude Include="__Generated__\Runnable.h" />
+    <ClInclude Include="__Generated__\CalculatorShould.generated.h" />
+    <ClInclude Include="__Generated__\TestRegistrar.h" />
     <ClInclude Include="__Generated__\SlothTests.h" />
+    <ClInclude Include="__Generated__\TestRunnable.h" />
     <ClInclude Include="__Generated__\TestClass.h" />
     <ClInclude Include="__Generated__\TestMethod.h" />
   </ItemGroup>

@@ -3,30 +3,35 @@
 #include <unordered_map>
 #include <iostream>
 #include <string>
-#include "Header.h"
-#include "Runnable.h"
+#include "TestRunnable.h"
 
 using namespace SlothUnit;
 
 template<class T>
-class TestClass : public Runnable
+class TestClass : public TestRunnable
 {
 public:
 
-	std::string Path;
-	std::string Name;
-	std::unordered_map<std::string, TestFunction> TestMethods;
-
 	typedef void (T::*TestMethod)();
-	TestClass(const std::string& path, const std::string& name, T testClass, std::unordered_map<std::string, TestMethod> testFunctions)
+	TestClass(const std::string& path, const std::string& name, T testClass, std::unordered_map<std::string, TestMethod> testMethods)
 	{
-		Path = path;
-		Name = name;
-		for (auto testFunction : testFunctions)
+		this->path = path;
+		this->name = name;
+		for (auto& testMethod : testMethods)
 		{
-			TestMethods.emplace(testFunction.first, std::bind(testFunction.second, testClass));
-			std::cout << name << "::" << testFunction.first << " registered" << std::endl;
-			TestRepository::Register(this);
+			testFunctions.emplace(testMethod.first, std::bind(testMethod.second, testClass));
 		}
 	}
+
+	void Run() override
+	{
+		for (auto& testFunction : testFunctions)
+		{
+			testFunction.second();
+		}
+	}
+
+	std::string Path() override { return path; }
+
+	std::string Name() override { return name; }
 };

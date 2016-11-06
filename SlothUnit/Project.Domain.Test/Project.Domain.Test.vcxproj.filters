@@ -21,9 +21,6 @@
     <ClCompile Include="__Generated__\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="__Generated__\SlothTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculatorShould.h">
@@ -77,9 +74,6 @@
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubTestFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="__Generated__\SlothTests.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="__Generated__\TestClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -89,10 +83,16 @@
     <ClInclude Include="CodeGenerationShould\CalculatorShould.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="__Generated__\Runnable.h">
+    <ClInclude Include="__Generated__\TestRegistrar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="__Generated__\TestRepository.h">
+    <ClInclude Include="__Generated__\TestRunnable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="__Generated__\CalculatorShould.generated.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="__Generated__\SlothTests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
