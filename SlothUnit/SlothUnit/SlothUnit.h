@@ -1,9 +1,9 @@
 #pragma once
-#include "Exports.h"
+
 #include "TestRunnable.h"
 #include "TestClass.h"
-#include "TestRegistrar.h"
 #include "SlothTests.h"
+#include "TestRegistrar.h"
 #include "Assertion.h"
 
 namespace SlothUnit

@@ -5,14 +5,14 @@
 
 namespace SlothUnit
 {
-	class SLOTHUNIT_API SlothTests
+	class SlothTests
 	{
 		static std::vector<std::shared_ptr<TestRunnable>> TestRunnables;
 
 	public:
 
-		static void Register(std::shared_ptr<TestRunnable>& testRunnable);
+		SLOTHUNIT_API static void Register(std::shared_ptr<TestRunnable>& testRunnable);
 
-		static void ExecuteAll();
+		SLOTHUNIT_API static void ExecuteAll();
 	};
 }
