@@ -155,7 +155,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="IncludedClass.cpp" />
-    <ClCompile Include="__Generated__\Main.cpp" />
+    <ClCompile Include="__Generated__\__Main__.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculatorShould.h" />
@@ -184,7 +184,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="__Generated__\Tests.generated.h" />
+    <None Include="__Generated__\__Tests__.generated.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

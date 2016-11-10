@@ -18,7 +18,7 @@
     <ClCompile Include="IncludedClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="__Generated__\Main.cpp">
+    <ClCompile Include="__Generated__\__Main__.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -82,6 +82,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="__Generated__\Tests.generated.h" />
+    <None Include="__Generated__\__Tests__.generated.h" />
   </ItemGroup>
 </Project>
