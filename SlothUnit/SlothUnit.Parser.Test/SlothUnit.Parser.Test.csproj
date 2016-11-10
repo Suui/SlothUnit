@@ -95,6 +95,9 @@
       <Name>SlothUnit.Parser</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="__Main__.cpp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\ClangSharp.3.8.0\build\ClangSharp.targets" Condition="Exists('..\packages\ClangSharp.3.8.0\build\ClangSharp.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
