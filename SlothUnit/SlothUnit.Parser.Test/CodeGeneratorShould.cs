@@ -1,7 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
+
 
 /* TODO
 	- __Generated__ folder
@@ -14,16 +16,41 @@ namespace SlothUnit.Parser.Test
 	[TestFixture]
 	public class CodeGeneratorShould : FileSystemTest
 	{
+		[TearDown]
+		public void delete_generated_elements()
+		{
+			try
+			{
+				var generatedFolder = Directory.GetDirectories(TestProjectDir)
+											   .Single(path => path.Equals(Path.Combine(TestProjectDir, "__Generated__")));
+				Directory.Delete(generatedFolder, true);
+			}
+			catch (InvalidOperationException) {}
+		}
+
+		[Test]
+		public void generate_the_folder_containing_the_generated_files()
+		{
+			const string generatedFolderName = "__Generated__";
+			var slothGenerator = new SlothGenerator(TestProjectDir);
+
+			slothGenerator.GenerateFolder();
+
+			var folders = Directory.GetDirectories(TestProjectDir);
+			folders.Contains(Path.Combine(TestProjectDir, generatedFolderName)).Should().BeTrue();
+		}
+
 		[Test]
 		public void generate_the_main_file()
 		{
-			var folderName = "__Generated__";
 			const string mainFileName = "__Main__.cpp";
+			var generatedFolderPath = Path.Combine(TestProjectDir, "__Generated__");
 			var slothGenerator = new SlothGenerator(TestProjectDir);
 
 			slothGenerator.GenerateMainFile();
 
-			var generatedFile = Directory.GetFiles(TestProjectDir).Single(filename => filename.Equals(mainFileName));
+			var generatedFile = Directory.GetFiles(generatedFolderPath)
+										 .Single(filename => filename.Equals(mainFileName));
 			var expectedMainFile = Directory.GetFiles(Path.Combine(SolutionDir, "SlothUnit.Parser.Test"))
 											.Single(fileName => fileName.Equals(mainFileName));
 			File.ReadAllText(generatedFile).Should().Be(File.ReadAllText(expectedMainFile));
@@ -37,6 +64,11 @@ namespace SlothUnit.Parser.Test
 		public SlothGenerator(string rootPath)
 		{
 			RootPath = rootPath;
+		}
+
+		public void GenerateFolder()
+		{
+			Directory.CreateDirectory(Path.Combine(RootPath, "__Generated__"));
 		}
 
 		public void GenerateMainFile()

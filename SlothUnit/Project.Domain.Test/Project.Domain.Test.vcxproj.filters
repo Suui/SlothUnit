@@ -18,9 +18,6 @@
     <ClCompile Include="IncludedClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="__Generated__\__Main__.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculatorShould.h">
@@ -77,11 +74,5 @@
     <ClInclude Include="CodeGenerationShould\CalculatorShould.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="__Generated__\CalculatorShould.generated.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="__Generated__\__Tests__.generated.h" />
   </ItemGroup>
 </Project>
