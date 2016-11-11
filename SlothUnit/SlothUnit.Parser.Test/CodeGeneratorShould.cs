@@ -44,16 +44,17 @@ namespace SlothUnit.Parser.Test
 		[Test]
 		public void generate_the_main_file()
 		{
-			const string mainFileName = "__Main__.cpp";
-			var generatedFolderPath = Path.Combine(TestProjectDir, "__Generated__");
+			const string mainFileName = "__Main__.generated.cpp";
 			var slothGenerator = new SlothGenerator(TestProjectDir);
 
+			slothGenerator.GenerateFolder();
 			slothGenerator.GenerateMainFile();
 
-			var generatedFile = Directory.GetFiles(generatedFolderPath)
-										 .Single(filename => filename.Equals(mainFileName));
-			var expectedMainFile = Directory.GetFiles(Path.Combine(SolutionDir, "SlothUnit.Parser.Test"))
-											.Single(fileName => fileName.Equals(mainFileName));
+			var slothUnitTestDir = Path.Combine(SolutionDir, "SlothUnit.Parser.Test");
+			var expectedMainFile = Directory.GetFiles(slothUnitTestDir)
+											.Single(path => path.Equals(Path.Combine(slothUnitTestDir, mainFileName)));
+			var generatedFile = Directory.GetFiles(GeneratedFolderPath)
+										 .Single(filename => filename.Equals(Path.Combine(GeneratedFolderPath, mainFileName)));
 			File.ReadAllText(generatedFile).Should().Be(File.ReadAllText(expectedMainFile));
 		}
 	}
@@ -74,7 +75,21 @@ namespace SlothUnit.Parser.Test
 
 		public void GenerateMainFile()
 		{
-			
+			const string name = "__Main__.generated.cpp";
+			const string content =
+@"#include ""../../SlothUnit/SlothUnit.h""
+#include ""__Tests__.generated.h""
+
+using namespace SlothUnit;
+
+int main()
+{
+	SlothTests::ExecuteAll();
+	return 0;
+}
+";
+			var generatedFolder = Path.Combine(RootPath, "__Generated__");
+			File.WriteAllText(Path.Combine(generatedFolder, name), content);
 		}
 	}
 }
