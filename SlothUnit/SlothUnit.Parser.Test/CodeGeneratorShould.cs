@@ -16,13 +16,15 @@ namespace SlothUnit.Parser.Test
 	[TestFixture]
 	public class CodeGeneratorShould : FileSystemTest
 	{
+		private string GeneratedFolderPath { get; } = Path.Combine(TestProjectDir, "__Generated__");
+
 		[TearDown]
 		public void delete_generated_elements()
 		{
 			try
 			{
 				var generatedFolder = Directory.GetDirectories(TestProjectDir)
-											   .Single(path => path.Equals(Path.Combine(TestProjectDir, "__Generated__")));
+											   .Single(path => path.Equals(GeneratedFolderPath));
 				Directory.Delete(generatedFolder, true);
 			}
 			catch (InvalidOperationException) {}
@@ -31,13 +33,12 @@ namespace SlothUnit.Parser.Test
 		[Test]
 		public void generate_the_folder_containing_the_generated_files()
 		{
-			const string generatedFolderName = "__Generated__";
 			var slothGenerator = new SlothGenerator(TestProjectDir);
 
 			slothGenerator.GenerateFolder();
 
-			var folders = Directory.GetDirectories(TestProjectDir);
-			folders.Contains(Path.Combine(TestProjectDir, generatedFolderName)).Should().BeTrue();
+			Directory.GetDirectories(TestProjectDir)
+					 .Contains(GeneratedFolderPath).Should().BeTrue();
 		}
 
 		[Test]
