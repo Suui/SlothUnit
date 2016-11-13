@@ -9,7 +9,7 @@ namespace SlothUnit.Parser.Core
 
 		public SlothGenerator(string rootPath)
 		{
-			GeneratedFolder = Path.Combine(rootPath, "__Generated__");
+			GeneratedFolder = Path.Combine(rootPath, NameOfThe.GeneratedFolder);
 		}
 
 		public void GenerateFolder()
@@ -19,8 +19,7 @@ namespace SlothUnit.Parser.Core
 
 		public void GenerateMainFile()
 		{
-			const string fileName = "__Main__.generated.cpp";
-			const string content =
+			GenerateFile(NameOfThe.MainFile,
 @"#include ""../../SlothUnit/SlothUnit.h""
 #include ""__Tests__.generated.h""
 
@@ -31,15 +30,12 @@ int main()
 	SlothTests::ExecuteAll();
 	return 0;
 }
-";
-			GenerateFile(fileName, content);
+");
 		}
 
 		public void GenerateIncludedTestsFile()
 		{
-			const string fileName = "__Tests__.generated.h";
-			const string content = @"#pragma once";
-			GenerateFile(fileName, content);
+			GenerateFile(NameOfThe.IncludedTestsFile, @"#pragma once");
 		}
 
 		private void GenerateFile(string fileName, string content)

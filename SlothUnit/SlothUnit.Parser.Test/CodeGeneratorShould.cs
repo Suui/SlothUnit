@@ -17,7 +17,7 @@ namespace SlothUnit.Parser.Test
 	[TestFixture]
 	public class CodeGeneratorShould : FileSystemTest
 	{
-		private string GeneratedFolderPath { get; } = Path.Combine(TestProjectDir, "__Generated__");
+		private string GeneratedFolderPath { get; } = Path.Combine(TestProjectDir, NameOfThe.GeneratedFolder);
 
 		[TearDown]
 		public void delete_generated_elements()
@@ -45,14 +45,13 @@ namespace SlothUnit.Parser.Test
 		[Test]
 		public void generate_the_main_file()
 		{
-			const string mainFileName = "__Main__.generated.cpp";
 			var slothGenerator = new SlothGenerator(TestProjectDir);
 
 			slothGenerator.GenerateFolder();
 			slothGenerator.GenerateMainFile();
 
-			var expectedMainFile = RetrieveExpectedFile(mainFileName);
-			var generatedFile = RetrieveGeneratedFile(mainFileName);
+			var expectedMainFile = RetrieveExpectedFile(NameOfThe.MainFile);
+			var generatedFile = RetrieveGeneratedFile(NameOfThe.MainFile);
 			File.ReadAllText(generatedFile).Should().Be(File.ReadAllText(expectedMainFile));
 		}
 
@@ -64,15 +63,15 @@ namespace SlothUnit.Parser.Test
 			slothGenerator.GenerateFolder();
 			slothGenerator.GenerateIncludedTestsFile();
 
-			var generatedFile = RetrieveGeneratedFile("__Tests__.generated.h");
+			var generatedFile = RetrieveGeneratedFile(NameOfThe.IncludedTestsFile);
 			File.ReadAllText(generatedFile).Should().Be("#pragma once");
 		}
 
-		private static string RetrieveExpectedFile(string mainFileName)
+		private static string RetrieveExpectedFile(string fileName)
 		{
 			var slothUnitTestDir = Path.Combine(SolutionDir, "SlothUnit.Parser.Test");
 			return Directory.GetFiles(slothUnitTestDir)
-							.Single(path => path.Equals(Path.Combine(slothUnitTestDir, mainFileName)));
+							.Single(path => path.Equals(Path.Combine(slothUnitTestDir, fileName)));
 		}
 
 		private string RetrieveGeneratedFile(string fileName)
