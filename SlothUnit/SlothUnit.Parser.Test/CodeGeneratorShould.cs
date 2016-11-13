@@ -51,12 +51,34 @@ namespace SlothUnit.Parser.Test
 			slothGenerator.GenerateFolder();
 			slothGenerator.GenerateMainFile();
 
-			var slothUnitTestDir = Path.Combine(SolutionDir, "SlothUnit.Parser.Test");
-			var expectedMainFile = Directory.GetFiles(slothUnitTestDir)
-											.Single(path => path.Equals(Path.Combine(slothUnitTestDir, mainFileName)));
-			var generatedFile = Directory.GetFiles(GeneratedFolderPath)
-										 .Single(filename => filename.Equals(Path.Combine(GeneratedFolderPath, mainFileName)));
+			var expectedMainFile = RetrieveExpectedFile(mainFileName);
+			var generatedFile = RetrieveGeneratedFile(mainFileName);
 			File.ReadAllText(generatedFile).Should().Be(File.ReadAllText(expectedMainFile));
+		}
+
+		[Test]
+		public void generate_the_included_tests_file()
+		{
+			var slothGenerator = new SlothGenerator(TestProjectDir);
+
+			slothGenerator.GenerateFolder();
+			slothGenerator.GenerateIncludedTestsFile();
+
+			var generatedFile = RetrieveGeneratedFile("__Tests__.generated.h");
+			File.ReadAllText(generatedFile).Should().Be("#pragma once");
+		}
+
+		private static string RetrieveExpectedFile(string mainFileName)
+		{
+			var slothUnitTestDir = Path.Combine(SolutionDir, "SlothUnit.Parser.Test");
+			return Directory.GetFiles(slothUnitTestDir)
+							.Single(path => path.Equals(Path.Combine(slothUnitTestDir, mainFileName)));
+		}
+
+		private string RetrieveGeneratedFile(string fileName)
+		{
+			return Directory.GetFiles(GeneratedFolderPath)
+							.Single(name => name.Equals(Path.Combine(GeneratedFolderPath, fileName)));
 		}
 	}
 }
