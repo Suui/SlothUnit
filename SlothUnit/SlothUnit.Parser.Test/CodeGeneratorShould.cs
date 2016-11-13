@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
+using SlothUnit.Parser.Core;
 
 
 /* TODO
@@ -56,40 +57,6 @@ namespace SlothUnit.Parser.Test
 			var generatedFile = Directory.GetFiles(GeneratedFolderPath)
 										 .Single(filename => filename.Equals(Path.Combine(GeneratedFolderPath, mainFileName)));
 			File.ReadAllText(generatedFile).Should().Be(File.ReadAllText(expectedMainFile));
-		}
-	}
-
-	public class SlothGenerator
-	{
-		public string RootPath { get; set; }
-
-		public SlothGenerator(string rootPath)
-		{
-			RootPath = rootPath;
-		}
-
-		public void GenerateFolder()
-		{
-			Directory.CreateDirectory(Path.Combine(RootPath, "__Generated__"));
-		}
-
-		public void GenerateMainFile()
-		{
-			const string name = "__Main__.generated.cpp";
-			const string content =
-@"#include ""../../SlothUnit/SlothUnit.h""
-#include ""__Tests__.generated.h""
-
-using namespace SlothUnit;
-
-int main()
-{
-	SlothTests::ExecuteAll();
-	return 0;
-}
-";
-			var generatedFolder = Path.Combine(RootPath, "__Generated__");
-			File.WriteAllText(Path.Combine(generatedFolder, name), content);
 		}
 	}
 }
