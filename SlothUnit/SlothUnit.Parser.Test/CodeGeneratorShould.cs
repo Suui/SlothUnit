@@ -22,13 +22,10 @@ namespace SlothUnit.Parser.Test
 		[TearDown]
 		public void delete_generated_elements()
 		{
-			try
-			{
-				var generatedFolder = Directory.GetDirectories(TestProjectDir)
-											   .Single(path => path.Equals(GeneratedFolderPath));
-				Directory.Delete(generatedFolder, true);
-			}
-			catch (InvalidOperationException) {}
+			var generatedFolderPath = Path.Combine(TestProjectDir, NameOfThe.GeneratedFolder);
+
+			if (Directory.Exists(generatedFolderPath))
+				Directory.Delete(generatedFolderPath, true);
 		}
 
 		[Test]
