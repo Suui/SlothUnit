@@ -13,7 +13,7 @@ namespace SlothUnit.Parser.Test
 		[Test]
 		public void contain_the_properties_set_in_the_attributes()
 		{
-			var filePath = Path.Combine(TestProjectDir, "TestMethodShould.h");
+			var filePath = Path.Combine(TestProjectPath, "TestMethodShould.h");
 			var testFile = new SlothParser().TryGetTestFileFrom(filePath);
 			var testMethod = testFile.TestClasses.Single().TestMethods[0];
 

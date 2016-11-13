@@ -7,14 +7,19 @@ namespace SlothUnit.Parser.Core
 	{
 		private string GeneratedFolder { get; }
 
-		public SlothGenerator(string rootPath)
+		public static SlothGenerator For(string rootPath)
 		{
-			GeneratedFolder = Path.Combine(rootPath, NameOfThe.GeneratedFolder);
+			var generatedFolderPath = Path.Combine(rootPath, NameOfThe.GeneratedFolder);
+
+			if (!Directory.Exists(generatedFolderPath))
+				Directory.CreateDirectory(generatedFolderPath);
+
+			return new SlothGenerator(generatedFolderPath);
 		}
 
-		public void GenerateFolder()
+		private SlothGenerator(string generatedFolderPath)
 		{
-			Directory.CreateDirectory(GeneratedFolder);
+			GeneratedFolder = generatedFolderPath;
 		}
 
 		public void GenerateMainFile()

@@ -18,7 +18,7 @@ namespace SlothUnit.Parser.Test
 		[SetUp]
 		public void given_a_class_cursor_in_a_file()
 		{
-			FilePath = Path.Combine(TestProjectDir, "ClangWrapperShould.h");
+			FilePath = Path.Combine(TestProjectPath, "ClangWrapperShould.h");
 			ClangWrapper = ClangWrapper.For(FilePath);
 			ClassCursor = ClangWrapper.RetrieveClassCursors().Single();
 		}

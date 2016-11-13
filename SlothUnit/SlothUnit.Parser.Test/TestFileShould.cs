@@ -17,7 +17,7 @@ namespace SlothUnit.Parser.Test
 		[SetUp]
 		public void given_a_test_file()
 		{
-			FilePath = Path.Combine(TestProjectDir, FileName);
+			FilePath = Path.Combine(TestProjectPath, FileName);
 			TestFile = new SlothParser().TryGetTestFileFrom(FilePath);
 		}
 

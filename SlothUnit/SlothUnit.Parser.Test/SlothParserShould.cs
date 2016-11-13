@@ -12,7 +12,7 @@ namespace SlothUnit.Parser.Test
 		[Test]
 		public void retrieve_all_the_test_files_in_the_root_directory()
 		{
-			var rootPath = Path.Combine(SolutionDir, Path.Combine(TestProjectDir, @"SlothParserShould"));
+			var rootPath = Path.Combine(SolutionPath, Path.Combine(TestProjectPath, @"SlothParserShould"));
 
 			var testFiles = SlothParser.RetrieveTestFilesIn(rootPath);
 
