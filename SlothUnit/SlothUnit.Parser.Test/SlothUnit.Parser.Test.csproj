@@ -79,7 +79,7 @@
   <ItemGroup>
     <Compile Include="ClangWrapperShould.cs" />
     <Compile Include="CodeGeneratorShould.cs" />
-    <Compile Include="Helpers\GeneratedCodeFor.cs" />
+    <Compile Include="Helpers\ExpectedCodeFor.cs" />
     <Compile Include="SlothParserShould.cs" />
     <Compile Include="TestClassShould.cs" />
     <Compile Include="Helpers\FileSystemTest.cs" />
@@ -95,9 +95,6 @@
       <Project>{7A67C245-2895-4FF0-AAF7-3EBCD0E7CA9D}</Project>
       <Name>SlothUnit.Parser</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="__Main__.generated.cpp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\ClangSharp.3.8.0\build\ClangSharp.targets" Condition="Exists('..\packages\ClangSharp.3.8.0\build\ClangSharp.targets')" />

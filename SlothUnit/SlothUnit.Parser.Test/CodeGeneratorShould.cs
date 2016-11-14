@@ -44,13 +44,10 @@ namespace SlothUnit.Parser.Test
 		[Test]
 		public void generate_the_main_file()
 		{
-			var slothUnitTestDir = Path.Combine(SolutionPath, "SlothUnit.Parser.Test");
-
 			SlothGenerator.GenerateMainFile();
 
-			var expectedMainFile = RetrieveFile(slothUnitTestDir, NameOfThe.MainFile);
 			var generatedFile = RetrieveFile(GeneratedFolderPath, NameOfThe.MainFile);
-			File.ReadAllText(generatedFile).Should().Be(File.ReadAllText(expectedMainFile));
+			File.ReadAllText(generatedFile).Should().Be(ExpectedCodeFor.TheMainFile);
 		}
 
 		[Test]
@@ -70,7 +67,7 @@ namespace SlothUnit.Parser.Test
 			SlothGenerator.Generate(testFiles);
 
 			var generatedFile = RetrieveFile(GeneratedFolderPath, "ClassWithASingleTestMethod.generated.h");
-			File.ReadAllText(generatedFile).Should().Be(GeneratedCodeFor.ClassWithASingleTestMethod);
+			File.ReadAllText(generatedFile).Should().Be(ExpectedCodeFor.AClassWithASingleTestMethod);
 		}
 
 		private static string RetrieveFile(string folderPath, string fileName)

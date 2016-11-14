@@ -3,10 +3,23 @@
 
 namespace SlothUnit.Parser.Test.Helpers
 {
-	public class GeneratedCodeFor : FileSystemTest
+	public class ExpectedCodeFor : FileSystemTest
 	{
-		public static string ClassWithASingleTestMethod =
-			$@"#pragma once
+		public static string TheMainFile =
+@"#include <SlothUnit.h>
+#include ""__Tests__.generated.h""
+
+using namespace SlothUnit;
+
+int main()
+{
+	SlothTests::ExecuteAll();
+	return 0;
+}
+";
+
+		public static string AClassWithASingleTestMethod =
+$@"#pragma once
 #include ""{Path.Combine(CodeGenerationTestPath, "ClassWithASingleTestMethod.h")}""
 
 auto registrar = TestRegistrar(TestClass<ClassWithASingleTestMethod>
