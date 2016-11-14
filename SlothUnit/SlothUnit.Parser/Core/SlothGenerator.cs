@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using SlothUnit.Parser.Core.Collections;
 
 
 namespace SlothUnit.Parser.Core
@@ -41,6 +42,29 @@ int main()
 		public void GenerateIncludedTestsFile()
 		{
 			GenerateFile(NameOfThe.IncludedTestsFile, @"#pragma once");
+		}
+
+		public void Generate(TestFiles testFiles)
+		{
+			var testFile = testFiles.Single(file => file.Name.Equals("ClassWithASingleTestMethod.h"));
+			var testClass = testFile.TestClasses.Single();
+			var testMethod = testClass.TestMethods.Single();
+			var content =
+$@"#pragma once
+#include ""{testFile.Path}""
+
+auto registrar = TestRegistrar(TestClass<{testClass.Name}>
+(
+	""{testFile.Path}"",
+	""{testClass.Name}"",
+	{testClass.Name}(),
+	{{
+		{{ ""{testMethod.Name}"", &{testClass.Name}::{testMethod.Name} }}
+	}}
+));
+";
+			var fileName = testFile.Name.Substring(0, testFile.Name.LastIndexOf('.'));
+			GenerateFile(fileName + ".generated.h", content);
 		}
 
 		private void GenerateFile(string fileName, string content)

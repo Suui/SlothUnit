@@ -3,6 +3,7 @@ using FluentAssertions;
 using NUnit.Framework;
 using SlothUnit.Parser.Core;
 using SlothUnit.Parser.Core.Elements;
+using SlothUnit.Parser.Test.Helpers;
 
 
 namespace SlothUnit.Parser.Test

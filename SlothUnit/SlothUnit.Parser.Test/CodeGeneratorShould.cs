@@ -1,14 +1,13 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 using SlothUnit.Parser.Core;
+using SlothUnit.Parser.Test.Helpers;
+using File = System.IO.File;
 
 
 /* TODO
-	- __Generated__ folder
-	- __Main__ file including slothunit and __Tests__
 	- __Tests__ file including all generated / +Recurse
 */
 
@@ -61,6 +60,17 @@ namespace SlothUnit.Parser.Test
 
 			var generatedFile = RetrieveFile(GeneratedFolderPath, NameOfThe.IncludedTestsFile);
 			File.ReadAllText(generatedFile).Should().Be("#pragma once");
+		}
+
+		[Test]
+		public void generate_the_file_for_a_class_with_a_single_method()
+		{
+			var testFiles = SlothParser.RetrieveTestFilesIn(CodeGenerationTestPath);
+
+			SlothGenerator.Generate(testFiles);
+
+			var generatedFile = RetrieveFile(GeneratedFolderPath, "ClassWithASingleTestMethod.generated.h");
+			File.ReadAllText(generatedFile).Should().Be(GeneratedCodeFor.ClassWithASingleTestMethod);
 		}
 
 		private static string RetrieveFile(string folderPath, string fileName)

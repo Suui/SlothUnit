@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SlothUnit.Parser.Core.Elements;
 
 
@@ -15,5 +16,7 @@ namespace SlothUnit.Parser.Core.Collections
 		}
 
 		public TestMethod this[int index] => Methods[index];
+
+		public TestMethod Single() => Methods.Single();
 	}
 }

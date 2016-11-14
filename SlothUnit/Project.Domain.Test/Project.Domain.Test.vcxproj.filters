@@ -71,7 +71,7 @@
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubTestFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CodeGenerationShould\CalculatorShould.h">
+    <ClInclude Include="CodeGeneration\ClassWithASingleTestMethod.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

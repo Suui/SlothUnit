@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using SlothUnit.Parser.Core.Elements;
 
 
@@ -13,5 +15,9 @@ namespace SlothUnit.Parser.Core.Collections
 		{
 			Files = testFiles;
 		}
+
+		public TestFile First() => Files.First();
+
+		public TestFile Single(Func<TestFile, bool> function) => Files.Single(function);
 	}
 }
