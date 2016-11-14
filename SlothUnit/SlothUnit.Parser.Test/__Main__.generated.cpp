@@ -1,4 +1,4 @@
-#include "../../SlothUnit/SlothUnit.h"
+#include <SlothUnit.h>
 #include "__Tests__.generated.h"
 
 using namespace SlothUnit;
