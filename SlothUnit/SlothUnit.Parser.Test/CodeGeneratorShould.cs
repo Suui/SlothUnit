@@ -1,8 +1,10 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 using SlothUnit.Parser.Core;
+using SlothUnit.Parser.Infrastructure;
 using SlothUnit.Parser.Test.Helpers;
 using File = System.IO.File;
 
@@ -70,10 +72,24 @@ namespace SlothUnit.Parser.Test
 			File.ReadAllText(generatedFile).Should().Be(ExpectedCodeFor.AClassWithASingleTestMethod);
 		}
 
+		[Test]
+		public void generate_the_file_for_a_class_with_multiple_methods()
+		{
+			var testFiles = SlothParser.RetrieveTestFilesIn(CodeGenerationTestPath);
+
+			SlothGenerator.Generate(testFiles);
+
+			var generatedFile = RetrieveFile(GeneratedFolderPath, "ClassWithMultipleTestMethods.generated.h");
+			File.ReadAllText(generatedFile).Should().Be(ExpectedCodeFor.AClassWithMultipleTestMethods);
+		}
+
 		private static string RetrieveFile(string folderPath, string fileName)
 		{
-			return Directory.GetFiles(folderPath)
-							.Single(path => path.Equals(Path.Combine(folderPath, fileName)));
+			if (File.Exists(Path.Combine(folderPath, fileName)))
+				return Directory.GetFiles(folderPath)
+								.Single(path => path.Equals(Path.Combine(folderPath, fileName)));
+			
+			throw new Exception($"The file with path {Path.Combine(folderPath, fileName)} was not generated." );
 		}
 	}
 }

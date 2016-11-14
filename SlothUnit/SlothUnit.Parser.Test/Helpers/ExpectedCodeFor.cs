@@ -32,5 +32,22 @@ auto registrar = TestRegistrar(TestClass<ClassWithASingleTestMethod>
 	}}
 ));
 ";
+
+		public static string AClassWithMultipleTestMethods =
+$@"#pragma once
+#include ""{Path.Combine(CodeGenerationTestPath, "ClassWithMultipleTestMethods.h")}""
+
+auto registrar = TestRegistrar(TestClass<ClassWithMultipleTestMethods>
+(
+	""{Path.Combine(CodeGenerationTestPath, "ClassWithMultipleTestMethods.h")}"",
+	""ClassWithMultipleTestMethods"",
+	ClassWithMultipleTestMethods(),
+	{{
+		{{ ""first_test_method"", &ClassWithMultipleTestMethods::first_test_method }},
+		{{ ""second_test_method"", &ClassWithMultipleTestMethods::second_test_method }},
+		{{ ""third_test_method"", &ClassWithMultipleTestMethods::third_test_method }}
+	}}
+));
+";
 	}
 }

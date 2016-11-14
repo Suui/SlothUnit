@@ -160,6 +160,7 @@
     <ClInclude Include="CalculatorShould.h" />
     <ClInclude Include="ClangWrapperShould.h" />
     <ClInclude Include="CodeGeneration\ClassWithASingleTestMethod.h" />
+    <ClInclude Include="CodeGeneration\ClassWithMultipleTestMethods.h" />
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFile.h" />
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubFile.h" />
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubTestFile.h" />

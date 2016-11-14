@@ -1,4 +1,4 @@
-﻿namespace SlothUnit.Parser.Core
+﻿namespace SlothUnit.Parser.Infrastructure
 {
 	public class NameOfThe
 	{

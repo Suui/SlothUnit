@@ -19,5 +19,7 @@ namespace SlothUnit.Parser.Core.Collections
 		public TestFile First() => Files.First();
 
 		public TestFile Single(Func<TestFile, bool> function) => Files.Single(function);
+
+		public void ForEach(Action<TestFile> action) => Files.ForEach(action);
 	}
 }
