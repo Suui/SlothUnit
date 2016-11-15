@@ -11,9 +11,9 @@ namespace SlothUnit.Parser.Test
 		[Test]
 		public void return_the_next_id()
 		{
-			RegistrarId.Next().Should().Be(1);
-			RegistrarId.Next().Should().Be(2);
-			RegistrarId.Next().Should().Be(3);
+			var id = RegistrarId.Next();
+			RegistrarId.Next().Should().Be(id + 1);
+			RegistrarId.Next().Should().Be(id + 2);
 		}
 	}
 }

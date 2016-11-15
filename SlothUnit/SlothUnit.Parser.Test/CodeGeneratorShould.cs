@@ -79,7 +79,7 @@ namespace SlothUnit.Parser.Test
 			SlothGenerator.Generate(testFiles);
 
 			var generatedFile = RetrieveFile(Path.Combine(GeneratedFolderPath, "CodeGeneration"), "ClassWithASingleTestMethod.generated.h");
-			File.ReadAllText(generatedFile).Should().Be(ExpectedCodeFor.AClassWithASingleTestMethod);
+			File.ReadAllText(generatedFile).Should().EndWithEquivalent(ExpectedCodeFor.AClassWithASingleTestMethod);
 		}
 
 		[Test]
@@ -90,7 +90,7 @@ namespace SlothUnit.Parser.Test
 			SlothGenerator.Generate(testFiles);
 
 			var generatedFile = RetrieveFile(Path.Combine(GeneratedFolderPath, "CodeGeneration"), "ClassWithMultipleTestMethods.generated.h");
-			File.ReadAllText(generatedFile).Should().Be(ExpectedCodeFor.AClassWithMultipleTestMethods);
+			File.ReadAllText(generatedFile).Should().EndWithEquivalent(ExpectedCodeFor.AClassWithMultipleTestMethods);
 		}
 
 		[Test]
@@ -101,7 +101,8 @@ namespace SlothUnit.Parser.Test
 			SlothGenerator.Generate(testFiles);
 
 			var generatedFile = RetrieveFile(Path.Combine(GeneratedFolderPath, "CodeGeneration"), "FileWithMultipleTestClasses.generated.h");
-			File.ReadAllText(generatedFile).Should().Be(ExpectedCodeFor.AFileWithMultipleTestClasses);
+			File.ReadAllText(generatedFile).Should().ContainEquivalentOf(ExpectedCodeFor.AClassInTheMiddleOfMultipleTestClasses);
+			File.ReadAllText(generatedFile).Should().EndWithEquivalent(ExpectedCodeFor.AClassInTheEndOfMultipleTestClasses);
 		}
 
 		[Test]

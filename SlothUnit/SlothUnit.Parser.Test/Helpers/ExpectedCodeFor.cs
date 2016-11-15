@@ -25,10 +25,7 @@ $@"#pragma once
 auto registrar_";
 
 		public static string AClassWithASingleTestMethod =
-$@"#pragma once
-#include ""{Path.Combine(CodeGenerationTestPath, "ClassWithASingleTestMethod.h")}""
-
-auto registrar = TestRegistrar(TestClass<ClassWithASingleTestMethod>
+$@" = TestRegistrar(TestClass<ClassWithASingleTestMethod>
 (
 	""{Path.Combine(CodeGenerationTestPath, "ClassWithASingleTestMethod.h")}"",
 	""ClassWithASingleTestMethod"",
@@ -40,10 +37,7 @@ auto registrar = TestRegistrar(TestClass<ClassWithASingleTestMethod>
 ";
 
 		public static string AClassWithMultipleTestMethods =
-$@"#pragma once
-#include ""{Path.Combine(CodeGenerationTestPath, "ClassWithMultipleTestMethods.h")}""
-
-auto registrar = TestRegistrar(TestClass<ClassWithMultipleTestMethods>
+$@" = TestRegistrar(TestClass<ClassWithMultipleTestMethods>
 (
 	""{Path.Combine(CodeGenerationTestPath, "ClassWithMultipleTestMethods.h")}"",
 	""ClassWithMultipleTestMethods"",
@@ -56,11 +50,8 @@ auto registrar = TestRegistrar(TestClass<ClassWithMultipleTestMethods>
 ));
 ";
 
-		public static string AFileWithMultipleTestClasses =
-$@"#pragma once
-#include ""{Path.Combine(CodeGenerationTestPath, "FileWithMultipleTestClasses.h")}""
-
-auto registrar = TestRegistrar(TestClass<FirstTestClass>
+		public static string AClassInTheMiddleOfMultipleTestClasses =
+$@" = TestRegistrar(TestClass<FirstTestClass>
 (
 	""{Path.Combine(CodeGenerationTestPath, "FileWithMultipleTestClasses.h")}"",
 	""FirstTestClass"",
@@ -70,7 +61,10 @@ auto registrar = TestRegistrar(TestClass<FirstTestClass>
 	}}
 ));
 
-auto registrar = TestRegistrar(TestClass<SecondTestClass>
+";
+
+		public static string AClassInTheEndOfMultipleTestClasses =
+$@" = TestRegistrar(TestClass<SecondTestClass>
 (
 	""{Path.Combine(CodeGenerationTestPath, "FileWithMultipleTestClasses.h")}"",
 	""SecondTestClass"",
