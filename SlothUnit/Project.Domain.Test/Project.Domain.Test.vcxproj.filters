@@ -80,5 +80,11 @@
     <ClInclude Include="CodeGeneration\FileWithMultipleTestClasses.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CodeGeneration\SubFolder\TestFileInASubFolder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeGeneration\SubFolder\RetrievedIncludeFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

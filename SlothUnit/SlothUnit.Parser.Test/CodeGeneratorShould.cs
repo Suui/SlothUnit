@@ -9,10 +9,6 @@ using SlothUnit.Parser.Test.Helpers;
 using File = System.IO.File;
 
 
-/* TODO
-	- __Tests__ file including all generated / +Recurse
-*/
-
 namespace SlothUnit.Parser.Test
 {
 	[TestFixture]
@@ -58,7 +54,7 @@ namespace SlothUnit.Parser.Test
 			SlothGenerator.GenerateIncludedTestsFile();
 
 			var generatedFile = RetrieveFile(GeneratedFolderPath, NameOfThe.IncludedTestsFile);
-			File.ReadAllText(generatedFile).Should().Be("#pragma once");
+			File.ReadAllText(generatedFile).Should().Be("#pragma once\n");
 		}
 
 		[Test]
@@ -68,7 +64,7 @@ namespace SlothUnit.Parser.Test
 
 			SlothGenerator.Generate(testFiles);
 
-			var generatedFile = RetrieveFile(GeneratedFolderPath, "ClassWithASingleTestMethod.generated.h");
+			var generatedFile = RetrieveFile(Path.Combine(GeneratedFolderPath, "CodeGeneration"), "ClassWithASingleTestMethod.generated.h");
 			File.ReadAllText(generatedFile).Should().Be(ExpectedCodeFor.AClassWithASingleTestMethod);
 		}
 
@@ -79,7 +75,7 @@ namespace SlothUnit.Parser.Test
 
 			SlothGenerator.Generate(testFiles);
 
-			var generatedFile = RetrieveFile(GeneratedFolderPath, "ClassWithMultipleTestMethods.generated.h");
+			var generatedFile = RetrieveFile(Path.Combine(GeneratedFolderPath, "CodeGeneration"), "ClassWithMultipleTestMethods.generated.h");
 			File.ReadAllText(generatedFile).Should().Be(ExpectedCodeFor.AClassWithMultipleTestMethods);
 		}
 
@@ -90,8 +86,32 @@ namespace SlothUnit.Parser.Test
 
 			SlothGenerator.Generate(testFiles);
 
-			var generatedFile = RetrieveFile(GeneratedFolderPath, "FileWithMultipleTestClasses.generated.h");
+			var generatedFile = RetrieveFile(Path.Combine(GeneratedFolderPath, "CodeGeneration"), "FileWithMultipleTestClasses.generated.h");
 			File.ReadAllText(generatedFile).Should().Be(ExpectedCodeFor.AFileWithMultipleTestClasses);
+		}
+
+		[Test]
+		public void generate_the_file_in_an_equivalent_subfolder()
+		{
+			var testFiles = SlothParser.RetrieveTestFilesIn(CodeGenerationTestPath);
+
+			SlothGenerator.Generate(testFiles);
+
+			File.Exists(Path.Combine(GeneratedFolderPath, "CodeGeneration", "SubFolder", "TestFileInASubFolder.generated.h"))
+				.Should().BeTrue();
+		}
+
+		[Test]
+		public void add_the_generated_files_to_the_included_tests_file()
+		{
+			var testFiles = SlothParser.RetrieveTestFilesIn(CodeGenerationTestPath);
+
+			SlothGenerator.GenerateIncludedTestsFile();
+			SlothGenerator.Generate(testFiles);
+
+			var includedTestsFile = RetrieveFile(GeneratedFolderPath, NameOfThe.IncludedTestsFile);
+			File.ReadAllText(includedTestsFile).Contains(@"#include ""CodeGeneration\SubFolder\RetrievedIncludeFile.generated.h""")
+											   .Should().BeTrue();
 		}
 
 		private static string RetrieveFile(string folderPath, string fileName)
