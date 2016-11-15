@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using SlothUnit.Parser.Infrastructure;
 
 
 namespace SlothUnit.Parser.Test.Helpers
@@ -27,7 +28,7 @@ auto registrar_";
 		public static string AClassWithASingleTestMethod =
 $@" = TestRegistrar(TestClass<ClassWithASingleTestMethod>
 (
-	""{Path.Combine(CodeGenerationTestPath, "ClassWithASingleTestMethod.h")}"",
+	""{StringHelper.CppPathFor(Path.Combine(CodeGenerationTestPath, "ClassWithASingleTestMethod.h"))}"",
 	""ClassWithASingleTestMethod"",
 	ClassWithASingleTestMethod(),
 	{{
@@ -39,7 +40,7 @@ $@" = TestRegistrar(TestClass<ClassWithASingleTestMethod>
 		public static string AClassWithMultipleTestMethods =
 $@" = TestRegistrar(TestClass<ClassWithMultipleTestMethods>
 (
-	""{Path.Combine(CodeGenerationTestPath, "ClassWithMultipleTestMethods.h")}"",
+	""{StringHelper.CppPathFor(Path.Combine(CodeGenerationTestPath, "ClassWithMultipleTestMethods.h"))}"",
 	""ClassWithMultipleTestMethods"",
 	ClassWithMultipleTestMethods(),
 	{{
@@ -53,7 +54,7 @@ $@" = TestRegistrar(TestClass<ClassWithMultipleTestMethods>
 		public static string AClassInTheMiddleOfMultipleTestClasses =
 $@" = TestRegistrar(TestClass<FirstTestClass>
 (
-	""{Path.Combine(CodeGenerationTestPath, "FileWithMultipleTestClasses.h")}"",
+	""{StringHelper.CppPathFor(Path.Combine(CodeGenerationTestPath, "FileWithMultipleTestClasses.h"))}"",
 	""FirstTestClass"",
 	FirstTestClass(),
 	{{
@@ -66,7 +67,7 @@ $@" = TestRegistrar(TestClass<FirstTestClass>
 		public static string AClassInTheEndOfMultipleTestClasses =
 $@" = TestRegistrar(TestClass<SecondTestClass>
 (
-	""{Path.Combine(CodeGenerationTestPath, "FileWithMultipleTestClasses.h")}"",
+	""{StringHelper.CppPathFor(Path.Combine(CodeGenerationTestPath, "FileWithMultipleTestClasses.h"))}"",
 	""SecondTestClass"",
 	SecondTestClass(),
 	{{

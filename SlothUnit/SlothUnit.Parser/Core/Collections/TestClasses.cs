@@ -34,7 +34,7 @@ namespace SlothUnit.Parser.Core.Collections
 				generatedCode +=
 $@"auto registrar_{RegistrarId.Next()} = TestRegistrar(TestClass<{@class.Name}>
 (
-	""{filePath}"",
+	""{StringHelper.CppPathFor(filePath)}"",
 	""{@class.Name}"",
 	{@class.Name}(),
 	{{
