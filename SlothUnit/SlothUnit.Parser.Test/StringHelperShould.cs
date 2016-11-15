@@ -19,5 +19,12 @@ namespace SlothUnit.Parser.Test
 		{
 			StringHelper.CppPathFor(@"Csharp\Beautiful\Path").Should().Be(@"Csharp\\Beautiful\\Path");
 		}
+
+		[Test]
+		public void remove_trailing_slash_of_a_given_path()
+		{
+			StringHelper.RemoveTrailingSlashFor(@"Any\Path\").Should().Be(@"Any\Path");
+			StringHelper.RemoveTrailingSlashFor(@"Any\Path").Should().Be(@"Any\Path");
+		}
 	}
 }

@@ -1,3 +1,6 @@
+using System.Linq;
+
+
 namespace SlothUnit.Parser.Infrastructure
 {
 	public class StringHelper
@@ -11,6 +14,11 @@ namespace SlothUnit.Parser.Infrastructure
 		public static string CppPathFor(string csharpPath)
 		{
 			return csharpPath.Replace(@"\", @"\\");
+		}
+
+		public static string RemoveTrailingSlashFor(string path)
+		{
+			return path.Last() == '\\' ? path.Substring(0, path.Length - 1) : path;
 		}
 	}
 }
