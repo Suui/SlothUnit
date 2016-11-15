@@ -72,6 +72,8 @@
   <ItemGroup>
     <Compile Include="Core\ClangWrapper.cs" />
     <Compile Include="Core\Collections\TestFiles.cs" />
+    <Compile Include="Infrastructure\NameOfThe.cs" />
+    <Compile Include="Core\SlothGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\SlothParser.cs" />

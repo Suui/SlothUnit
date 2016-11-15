@@ -155,11 +155,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="IncludedClass.cpp" />
-    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculatorShould.h" />
     <ClInclude Include="ClangWrapperShould.h" />
+    <ClInclude Include="CodeGeneration\ClassWithASingleTestMethod.h" />
+    <ClInclude Include="CodeGeneration\ClassWithMultipleTestMethods.h" />
+    <ClInclude Include="CodeGeneration\FileWithMultipleTestClasses.h" />
+    <ClInclude Include="CodeGeneration\SubFolder\RetrievedIncludeFile.h" />
+    <ClInclude Include="CodeGeneration\SubFolder\TestFileInASubFolder.h" />
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFile.h" />
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubFile.h" />
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubTestFile.h" />

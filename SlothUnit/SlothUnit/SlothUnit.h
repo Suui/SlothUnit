@@ -1,11 +1,13 @@
 #pragma once
 
-#include "Exports.h"
+#include "TestRunnable.h"
+#include "TestClass.h"
+#include "SlothTests.h"
+#include "TestRegistrar.h"
 #include "Assertion.h"
 
 namespace SlothUnit
 {
-	#define TestClass(...) Attribute(TEST_CLASS_MUTHAFUCKA, __VA_ARGS__)
 	#define Test(...) Attribute(Test, __VA_ARGS__)
 
 #if defined(__SLOTH_UNIT_PARSER__)

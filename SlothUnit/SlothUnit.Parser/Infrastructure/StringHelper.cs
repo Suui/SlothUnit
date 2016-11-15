@@ -7,5 +7,10 @@ namespace SlothUnit.Parser.Infrastructure
 			var lastSlashIndex = path.LastIndexOf('\\');
 			return path.Substring(lastSlashIndex + 1);
 		}
+
+		public static string CppPathFor(string csharpPath)
+		{
+			return csharpPath.Replace(@"\", @"\\");
+		}
 	}
 }

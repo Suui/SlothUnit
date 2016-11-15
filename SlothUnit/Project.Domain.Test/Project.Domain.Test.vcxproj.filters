@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="IncludedClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -72,6 +69,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubTestFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeGeneration\ClassWithASingleTestMethod.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeGeneration\ClassWithMultipleTestMethods.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeGeneration\FileWithMultipleTestClasses.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeGeneration\SubFolder\TestFileInASubFolder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeGeneration\SubFolder\RetrievedIncludeFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

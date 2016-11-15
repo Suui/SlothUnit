@@ -3,6 +3,7 @@ using FluentAssertions;
 using NUnit.Framework;
 using SlothUnit.Parser.Core;
 using SlothUnit.Parser.Core.Elements;
+using SlothUnit.Parser.Test.Helpers;
 
 
 namespace SlothUnit.Parser.Test
@@ -16,7 +17,7 @@ namespace SlothUnit.Parser.Test
 		[SetUp]
 		public void given_a_test_file()
 		{
-			FilePath = Path.Combine(TestProjectDir, "TestClassShould.h");
+			FilePath = Path.Combine(TestProjectPath, "TestClassShould.h");
 			TestFile = new SlothParser().TryGetTestFileFrom(FilePath);
 		}
 

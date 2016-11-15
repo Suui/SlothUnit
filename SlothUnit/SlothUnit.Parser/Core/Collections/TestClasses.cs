@@ -23,5 +23,27 @@ namespace SlothUnit.Parser.Core.Collections
 		public void Add(TestClass testClass) => Classes.Add(testClass);
 
 		public void ForEach(Action<TestClass> action) => Classes.ForEach(action);
+
+		public string GeneratedCode(string filePath)
+		{
+			var generatedCode = "";
+			Classes.ForEach(@class =>
+			{
+				var testMethods = @class.TestMethods.GeneratedCode(@class.Name);
+				generatedCode +=
+$@"auto registrar = TestRegistrar(TestClass<{@class.Name}>
+(
+	""{filePath}"",
+	""{@class.Name}"",
+	{@class.Name}(),
+	{{
+		{testMethods}
+	}}
+));
+
+";
+			});
+			return generatedCode.Substring(0, generatedCode.LastIndexOf('\r'));
+		}
 	}
 }

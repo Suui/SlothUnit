@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SlothUnit.Parser.Core.Elements;
 
 
@@ -15,5 +16,15 @@ namespace SlothUnit.Parser.Core.Collections
 		}
 
 		public TestMethod this[int index] => Methods[index];
+
+		public TestMethod Single() => Methods.Single();
+
+		public string GeneratedCode(string className)
+		{
+			var generatedCode = "";
+			Methods.ForEach(method => generatedCode += $@"{{ ""{method.Name}"", &{className}::{method.Name} }},
+		");
+			return generatedCode.Substring(0, generatedCode.LastIndexOf(','));
+		}
 	}
 }
