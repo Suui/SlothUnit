@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SlothUnit.Parser.Core.Elements;
+using SlothUnit.Parser.Infrastructure;
 
 
 namespace SlothUnit.Parser.Core.Collections
@@ -31,7 +32,7 @@ namespace SlothUnit.Parser.Core.Collections
 			{
 				var testMethods = @class.TestMethods.GeneratedCode(@class.Name);
 				generatedCode +=
-$@"auto registrar = TestRegistrar(TestClass<{@class.Name}>
+$@"auto registrar_{RegistrarId.Next()} = TestRegistrar(TestClass<{@class.Name}>
 (
 	""{filePath}"",
 	""{@class.Name}"",

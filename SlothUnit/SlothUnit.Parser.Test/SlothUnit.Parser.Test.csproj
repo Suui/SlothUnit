@@ -80,6 +80,7 @@
     <Compile Include="ClangWrapperShould.cs" />
     <Compile Include="CodeGeneratorShould.cs" />
     <Compile Include="Helpers\ExpectedCodeFor.cs" />
+    <Compile Include="RegistrarIdShould.cs" />
     <Compile Include="SlothParserShould.cs" />
     <Compile Include="StringHelperShould.cs" />
     <Compile Include="TestClassShould.cs" />

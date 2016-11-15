@@ -18,6 +18,12 @@ int main()
 }
 ";
 
+		public static string TheStartOfTheFile =
+$@"#pragma once
+#include ""{Path.Combine(CodeGenerationTestPath, "StartOfTheFile.h")}""
+
+auto registrar_";
+
 		public static string AClassWithASingleTestMethod =
 $@"#pragma once
 #include ""{Path.Combine(CodeGenerationTestPath, "ClassWithASingleTestMethod.h")}""

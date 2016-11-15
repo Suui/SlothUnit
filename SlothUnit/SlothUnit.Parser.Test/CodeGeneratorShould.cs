@@ -8,6 +8,9 @@ using SlothUnit.Parser.Infrastructure;
 using SlothUnit.Parser.Test.Helpers;
 using File = System.IO.File;
 
+/* TODO
+	- Test the number generation for the registrars (registrar_0 ... registrar_X)? Seems a bit awful, delaying it
+*/
 
 namespace SlothUnit.Parser.Test
 {
@@ -55,6 +58,17 @@ namespace SlothUnit.Parser.Test
 
 			var generatedFile = RetrieveFile(GeneratedFolderPath, NameOfThe.IncludedTestsFile);
 			File.ReadAllText(generatedFile).Should().Be("#pragma once\n");
+		}
+
+		[Test]
+		public void generate_the_file_starting_with_pragma_include_and_global_variable()
+		{
+			var testFiles = SlothParser.RetrieveTestFilesIn(CodeGenerationTestPath);
+
+			SlothGenerator.Generate(testFiles);
+
+			var generatedFile = RetrieveFile(Path.Combine(GeneratedFolderPath, "CodeGeneration"), "StartOfTheFile.generated.h");
+			File.ReadAllText(generatedFile).Should().StartWithEquivalent(ExpectedCodeFor.TheStartOfTheFile);
 		}
 
 		[Test]
