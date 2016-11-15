@@ -81,6 +81,7 @@
     <Compile Include="CodeGeneratorShould.cs" />
     <Compile Include="Helpers\ExpectedCodeFor.cs" />
     <Compile Include="SlothParserShould.cs" />
+    <Compile Include="StringHelperShould.cs" />
     <Compile Include="TestClassShould.cs" />
     <Compile Include="Helpers\FileSystemTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
