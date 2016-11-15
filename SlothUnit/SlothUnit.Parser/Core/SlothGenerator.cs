@@ -49,22 +49,13 @@ int main()
 		{
 			testFiles.ForEach(testFile =>
 			{
-				var testClass = testFile.TestClasses.Single();
-				var testMethods = testClass.TestMethods.GeneratedCode(testClass.Name);
+				var testClasses = testFile.TestClasses.GeneratedCode(testFile.Path);
 				var content =
 $@"#pragma once
 #include ""{testFile.Path}""
 
-auto registrar = TestRegistrar(TestClass<{testClass.Name}>
-(
-	""{testFile.Path}"",
-	""{testClass.Name}"",
-	{testClass.Name}(),
-	{{
-		{testMethods}
-	}}
-));
-";
+{testClasses}";
+
 				var fileName = testFile.Name.Substring(0, testFile.Name.LastIndexOf('.'));
 				GenerateFile(fileName + ".generated.h", content);
 			});

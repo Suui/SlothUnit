@@ -83,6 +83,17 @@ namespace SlothUnit.Parser.Test
 			File.ReadAllText(generatedFile).Should().Be(ExpectedCodeFor.AClassWithMultipleTestMethods);
 		}
 
+		[Test]
+		public void generate_the_file_for_a_class_with_multiple_classes()
+		{
+			var testFiles = SlothParser.RetrieveTestFilesIn(CodeGenerationTestPath);
+
+			SlothGenerator.Generate(testFiles);
+
+			var generatedFile = RetrieveFile(GeneratedFolderPath, "FileWithMultipleTestClasses.generated.h");
+			File.ReadAllText(generatedFile).Should().Be(ExpectedCodeFor.AFileWithMultipleTestClasses);
+		}
+
 		private static string RetrieveFile(string folderPath, string fileName)
 		{
 			if (File.Exists(Path.Combine(folderPath, fileName)))

@@ -77,5 +77,8 @@
     <ClInclude Include="CodeGeneration\ClassWithMultipleTestMethods.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CodeGeneration\FileWithMultipleTestClasses.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
