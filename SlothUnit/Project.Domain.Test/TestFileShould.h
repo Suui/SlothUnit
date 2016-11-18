@@ -4,7 +4,7 @@
 
 using namespace SlothUnit;
 
-class TestClassShould
+class TestFileShould
 {
 public:
 

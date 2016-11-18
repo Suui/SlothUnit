@@ -1,9 +1,9 @@
 #pragma once
-#include "../../../../SlothUnit/SlothUnit.h"
+#include "../../../SlothUnit/SlothUnit.h"
 
 using namespace SlothUnit;
 
-class SubSubTestFile
+class SubTestFile
 {
 public:
 

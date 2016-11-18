@@ -71,19 +71,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <CustomBuildBeforeTargets>PreBuildEvent</CustomBuildBeforeTargets>
+    <CustomBuildBeforeTargets>
+    </CustomBuildBeforeTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <CustomBuildBeforeTargets>PreBuildEvent</CustomBuildBeforeTargets>
+    <CustomBuildBeforeTargets>
+    </CustomBuildBeforeTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <CustomBuildBeforeTargets>PreBuildEvent</CustomBuildBeforeTargets>
+    <CustomBuildBeforeTargets>
+    </CustomBuildBeforeTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <CustomBuildBeforeTargets>PreBuildEvent</CustomBuildBeforeTargets>
+    <CustomBuildBeforeTargets>
+    </CustomBuildBeforeTargets>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -101,11 +105,16 @@
       <AdditionalDependencies>SlothUnit.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
+      <Command>
+      </Command>
     </CustomBuildStep>
     <CustomBuildStep>
-      <Outputs>AlwaysTrigger</Outputs>
+      <Outputs>
+      </Outputs>
     </CustomBuildStep>
+    <PreBuildEvent>
+      <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -123,13 +132,15 @@
       <AdditionalDependencies>SlothUnit.lib;Project.Domain.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe</Command>
+      <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
+      <Command>
+      </Command>
     </CustomBuildStep>
     <CustomBuildStep>
-      <Outputs>AlwaysTrigger</Outputs>
+      <Outputs>
+      </Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -154,9 +165,14 @@
       <AdditionalLibraryDirectories>$(SolutionDir)Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
-      <Outputs>AlwaysTrigger</Outputs>
+      <Command>
+      </Command>
+      <Outputs>
+      </Outputs>
     </CustomBuildStep>
+    <PreBuildEvent>
+      <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -176,12 +192,18 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <CustomBuildStep>
-      <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
-      <Outputs>AlwaysTrigger</Outputs>
+      <Command>
+      </Command>
+      <Outputs>
+      </Outputs>
     </CustomBuildStep>
+    <PreBuildEvent>
+      <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="IncludedClass.cpp" />
+    <ClCompile Include="__Generated__\__Main__.generated.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculatorShould.h" />
@@ -192,14 +214,14 @@
     <ClInclude Include="CodeGeneration\StartOfTheFile.h" />
     <ClInclude Include="CodeGeneration\SubFolder\RetrievedIncludeFile.h" />
     <ClInclude Include="CodeGeneration\SubFolder\TestFileInASubFolder.h" />
-    <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFile.h" />
-    <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubFile.h" />
-    <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolder\SubSubTestFile.h" />
-    <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubTestFile.h" />
-    <ClInclude Include="SlothParserShould\SubFolder\SubSubFile.h" />
+    <ClInclude Include="SlothParserShould\SubFolderTwo\SubFileTwo.h" />
+    <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolderTwo\SubSubFileTwo.h" />
+    <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolderTwo\SubSubTestFileTwo.h" />
+    <ClInclude Include="SlothParserShould\SubFolderTwo\SubTestFileTwo.h" />
+    <ClInclude Include="SlothParserShould\SubFolder\SubFile.h" />
     <ClInclude Include="SlothParserShould\SubFolder\SubSubFolder\SubSubFile.h" />
     <ClInclude Include="SlothParserShould\SubFolder\SubSubFolder\SubSubTestFile.h" />
-    <ClInclude Include="SlothParserShould\SubFolder\SubSubTestFile.h" />
+    <ClInclude Include="SlothParserShould\SubFolder\SubTestFile.h" />
     <ClInclude Include="SlothParserShould\TopFile.h" />
     <ClInclude Include="SlothParserShould\TopTestFile.h" />
     <ClInclude Include="SlothParserShould\TopTestFileTwo.h" />

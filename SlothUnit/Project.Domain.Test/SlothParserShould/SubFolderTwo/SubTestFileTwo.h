@@ -3,7 +3,7 @@
 
 using namespace SlothUnit;
 
-class SubSubTestFile
+class SubTestFileTwo
 {
 public:
 
