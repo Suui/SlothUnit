@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project.Domain", "Project.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlothUnit.Parser.Test", "SlothUnit.Parser.Test\SlothUnit.Parser.Test.csproj", "{DCB05129-8F0B-465B-A891-57D186FC1A37}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project.Domain.Display.Test", "Project.Domain.Display.Test\Project.Domain.Display.Test.vcxproj", "{AA20A4BE-C88F-44E6-8227-2061605EA6F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,16 @@ Global
 		{DCB05129-8F0B-465B-A891-57D186FC1A37}.Release|x64.Build.0 = Release|Any CPU
 		{DCB05129-8F0B-465B-A891-57D186FC1A37}.Release|x86.ActiveCfg = Release|Any CPU
 		{DCB05129-8F0B-465B-A891-57D186FC1A37}.Release|x86.Build.0 = Release|Any CPU
+		{AA20A4BE-C88F-44E6-8227-2061605EA6F5}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{AA20A4BE-C88F-44E6-8227-2061605EA6F5}.Debug|x64.ActiveCfg = Debug|x64
+		{AA20A4BE-C88F-44E6-8227-2061605EA6F5}.Debug|x64.Build.0 = Debug|x64
+		{AA20A4BE-C88F-44E6-8227-2061605EA6F5}.Debug|x86.ActiveCfg = Debug|Win32
+		{AA20A4BE-C88F-44E6-8227-2061605EA6F5}.Debug|x86.Build.0 = Debug|Win32
+		{AA20A4BE-C88F-44E6-8227-2061605EA6F5}.Release|Any CPU.ActiveCfg = Release|Win32
+		{AA20A4BE-C88F-44E6-8227-2061605EA6F5}.Release|x64.ActiveCfg = Release|x64
+		{AA20A4BE-C88F-44E6-8227-2061605EA6F5}.Release|x64.Build.0 = Release|x64
+		{AA20A4BE-C88F-44E6-8227-2061605EA6F5}.Release|x86.ActiveCfg = Release|Win32
+		{AA20A4BE-C88F-44E6-8227-2061605EA6F5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

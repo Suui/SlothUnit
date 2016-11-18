@@ -1,4 +1,5 @@
 ﻿#include "SlothTests.h"
+#include <string>
 
 namespace SlothUnit
 {
@@ -15,5 +16,21 @@ namespace SlothUnit
 		{
 			testRunnable->Run();
 		}
+
+		std::string sloth =
+"      `\"\"==,,__\n\
+        `\"==..__\"=..__ _    _..-==\"\"_\n\
+             .-,`\"=/ /\ \\\"\"/_)==\"\"``\n\
+            ( (    | | | \\/ |\n\
+             \\ '.  |  \\;  \\ /\n\
+              |  \\ |   |   ||\n\
+         ,-._.'  |_|   |   ||\n\
+        .\\_/\\     -'   ;   Y\n\
+       |  `  |        /    |-.\n\
+       '. __/_    _.-'     /'\n\
+              `'-.._____.-'\n\
+All green!\n";
+
+		std::cout << sloth << std::endl;
 	}
 }

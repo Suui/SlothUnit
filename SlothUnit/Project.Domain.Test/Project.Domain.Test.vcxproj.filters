@@ -23,9 +23,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CalculatorShould.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TestFileShould.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -90,6 +87,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SlothParserShould\SubFolder\SubFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CalculatorShould.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

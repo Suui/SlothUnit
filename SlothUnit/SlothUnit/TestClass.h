@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include "TestRunnable.h"
+#include "AssertionException.h"
 #include <unordered_map>
+#include <iostream>
 
 namespace SlothUnit
 {
@@ -24,7 +26,14 @@ namespace SlothUnit
 		{
 			for (auto& testFunction : testFunctions)
 			{
-				testFunction.second();
+				try
+				{
+					testFunction.second();
+				}
+				catch(AssertionException exception)
+				{
+					std::cout << exception.what() << std::endl;
+				}
 			}
 		}
 

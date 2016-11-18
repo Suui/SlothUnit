@@ -1,16 +1,18 @@
 ﻿#include "Assertion.h"
-#include <iostream>
+#include "AssertionException.h"
+#include <sstream>
 
 namespace SlothUnit
 {
-	Assertion::Assertion(int givenNumber) : givenNumber(givenNumber)
-	{
-	}
+	Assertion::Assertion(int givenNumber) : givenNumber(givenNumber) {}
 
 	bool Assertion::ToBe(int expectedNumber)
 	{
-		std::cout << "Expected " << expectedNumber << ", obtained " << givenNumber << std::endl;
-		return givenNumber == expectedNumber ? true : false;
+		if (givenNumber == expectedNumber) return true;
+
+		std::ostringstream exceptionStream;
+		exceptionStream << "Expected " << givenNumber << ", obtained " << expectedNumber;
+		throw AssertionException(exceptionStream.str());
 	}
 
 	SLOTHUNIT_API Assertion Expect(int givenNumber)
