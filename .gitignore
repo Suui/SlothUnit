@@ -1,7 +1,14 @@
 .vs
+packages
 Debug
 Release
+x86
+x64
+
+*.generated.h
 
 *.user
 *.opendb
+*.VC.db
 *.sdf
+*.suo
