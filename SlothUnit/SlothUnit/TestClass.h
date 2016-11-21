@@ -24,6 +24,9 @@ namespace SlothUnit
 
 		void Run() override
 		{
+			auto errorFlag = false;
+			std::string errorMessages = "";
+
 			for (auto& testFunction : testFunctions)
 			{
 				try
@@ -32,9 +35,12 @@ namespace SlothUnit
 				}
 				catch(AssertionException exception)
 				{
-					std::cout << exception.what() << std::endl;
+					errorMessages += "    " + testFunction.first + ": " + exception.what() + "\n";
+					errorFlag = true;
 				}
 			}
+
+			if (errorFlag) throw AssertionException(errorMessages);
 		}
 
 		std::string Path() override { return path; }

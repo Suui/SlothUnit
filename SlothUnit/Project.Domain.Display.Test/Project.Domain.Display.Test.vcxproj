@@ -97,7 +97,7 @@
       <AdditionalDependencies>SlothUnit.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
+      <Command>$(SolutionDir)SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -160,6 +160,7 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AnotherDisplayShould.h" />
     <ClInclude Include="DisplayShould.h" />
   </ItemGroup>
   <ItemGroup>

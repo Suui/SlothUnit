@@ -12,25 +12,25 @@ namespace SlothUnit
 
 	void SlothTests::ExecuteAll()
 	{
+		auto errorFlag = false;
 		for (auto testRunnable : TestRunnables)
 		{
-			testRunnable->Run();
+			try
+			{
+				testRunnable->Run();
+			}
+			catch (AssertionException exception)
+			{
+				system("color 0C");
+				errorFlag = true;
+				std::cout << testRunnable->Name() << std::endl << exception.what() << std::endl;
+			}
 		}
 
-		std::string sloth =
-"      `\"\"==,,__\n\
-        `\"==..__\"=..__ _    _..-==\"\"_\n\
-             .-,`\"=/ /\ \\\"\"/_)==\"\"``\n\
-            ( (    | | | \\/ |\n\
-             \\ '.  |  \\;  \\ /\n\
-              |  \\ |   |   ||\n\
-         ,-._.'  |_|   |   ||\n\
-        .\\_/\\     -'   ;   Y\n\
-       |  `  |        /    |-.\n\
-       '. __/_    _.-'     /'\n\
-              `'-.._____.-'\n\
-All green!\n";
-
-		std::cout << sloth << std::endl;
+		if (!errorFlag)
+		{
+			std::cout << "All green!" << std::endl;
+			system("color 0A");
+		}
 	}
 }
