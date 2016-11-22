@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include "AssertionException.h"
 #include <sstream>
-#include <iostream>
 
 namespace SlothUnit
 {

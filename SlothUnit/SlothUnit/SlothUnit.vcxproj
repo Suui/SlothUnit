@@ -148,7 +148,6 @@
   <ItemGroup>
     <ClInclude Include="Assertion.h" />
     <ClInclude Include="AssertionException.h" />
-    <ClInclude Include="Exports.h" />
     <ClInclude Include="SlothTests.h" />
     <ClInclude Include="SlothUnit.h" />
     <ClInclude Include="TestClass.h" />

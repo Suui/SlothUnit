@@ -1,12 +1,11 @@
 ﻿#pragma once
-#include "Exports.h"
 #include "SlothTests.h"
 #include "TestClass.h"
 #include <memory>
 
 namespace SlothUnit
 {
-	class SLOTHUNIT_API TestRegistrar
+	class TestRegistrar
 	{
 	public:
 
