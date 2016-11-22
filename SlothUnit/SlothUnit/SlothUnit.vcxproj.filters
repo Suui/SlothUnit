@@ -18,9 +18,6 @@
     <ClInclude Include="SlothUnit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Exports.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Assertion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
