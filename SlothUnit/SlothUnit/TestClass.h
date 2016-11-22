@@ -2,7 +2,6 @@
 #include "TestRunnable.h"
 #include "AssertionException.h"
 #include <unordered_map>
-#include <iostream>
 
 namespace SlothUnit
 {
@@ -35,7 +34,7 @@ namespace SlothUnit
 				}
 				catch(AssertionException exception)
 				{
-					errorMessages += "    " + testFunction.first + ": " + exception.what() + "\n";
+					errorMessages += "    " + testFunction.first + ": " + std::string(exception.what()) + "\n";
 					errorFlag = true;
 				}
 			}

@@ -8,5 +8,5 @@ class IncludedClass
 public:
 
 	Test()
-	void DummyFunction();
+	void DummyFunction() {}
 };

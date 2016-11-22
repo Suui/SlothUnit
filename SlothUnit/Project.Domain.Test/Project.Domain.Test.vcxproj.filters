@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="IncludedClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="__Generated__\__Main__.generated.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

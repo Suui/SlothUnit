@@ -93,8 +93,10 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SlothUnit.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>$(SolutionDir)SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
@@ -112,6 +114,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies />
     </Link>
     <PreBuildEvent>
       <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
@@ -133,6 +136,10 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
@@ -154,6 +161,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies />
     </Link>
     <PreBuildEvent>
       <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
