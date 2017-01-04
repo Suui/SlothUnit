@@ -23,8 +23,16 @@ namespace SlothUnit.Parser.Test
 		[Test]
 		public void remove_trailing_slash_of_a_given_path()
 		{
-			StringHelper.RemoveTrailingSlashFor(@"Any\Path\").Should().Be(@"Any\Path");
-			StringHelper.RemoveTrailingSlashFor(@"Any\Path").Should().Be(@"Any\Path");
+			StringHelper.RemoveTrailingSlashIn(@"Any\Path\").Should().Be(@"Any\Path");
+			StringHelper.RemoveTrailingSlashIn(@"Any\Path").Should().Be(@"Any\Path");
+		}
+
+		[Test]
+		public void remove_double_quotes_to_evaluate_path_with_spaces()
+		{
+			StringHelper.RemoveSurroundingQuotesIn("D:\\Projects\\Programming\\Cpp\\Installation Test\\Installation Test\"")
+						.Should()
+						.Be("D:\\Projects\\Programming\\Cpp\\Installation Test\\Installation Test");
 		}
 	}
 }

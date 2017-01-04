@@ -220,6 +220,7 @@
     <ClInclude Include="CodeGeneration\StartOfTheFile.h" />
     <ClInclude Include="CodeGeneration\SubFolder\RetrievedIncludeFile.h" />
     <ClInclude Include="CodeGeneration\SubFolder\TestFileInASubFolder.h" />
+    <ClInclude Include="Path With Spaces\EmptyTest.h" />
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubFileTwo.h" />
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolderTwo\SubSubFileTwo.h" />
     <ClInclude Include="SlothParserShould\SubFolderTwo\SubSubFolderTwo\SubSubTestFileTwo.h" />

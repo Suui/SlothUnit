@@ -89,5 +89,8 @@
     <ClInclude Include="CalculatorShould.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Path With Spaces\EmptyTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

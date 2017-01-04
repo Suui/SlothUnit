@@ -16,9 +16,14 @@ namespace SlothUnit.Parser.Infrastructure
 			return csharpPath.Replace(@"\", @"\\");
 		}
 
-		public static string RemoveTrailingSlashFor(string path)
+		public static string RemoveTrailingSlashIn(string path)
 		{
 			return path.Last() == '\\' ? path.Substring(0, path.Length - 1) : path;
+		}
+
+		public static string RemoveSurroundingQuotesIn(string path)
+		{
+			return path.Trim('"');
 		}
 	}
 }

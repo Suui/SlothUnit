@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using SlothUnit.Parser.Core.Collections;
 using SlothUnit.Parser.Core.Elements;
+using SlothUnit.Parser.Infrastructure;
 using File = SlothUnit.Parser.Core.Elements.File;
 
 
@@ -12,8 +13,9 @@ namespace SlothUnit.Parser.Core
 	{
 		public static TestFiles RetrieveTestFilesIn(string rootPath)
 		{
-			var slothParser = new SlothParser();
-			return new TestFiles(slothParser.RetrieveTestFilesFrom(rootPath));
+			rootPath = StringHelper.RemoveSurroundingQuotesIn(rootPath);
+			rootPath = StringHelper.RemoveTrailingSlashIn(rootPath);
+			return new TestFiles(new SlothParser().RetrieveTestFilesFrom(rootPath));
 		}
 
 		public List<TestFile> RetrieveTestFilesFrom(string path)
