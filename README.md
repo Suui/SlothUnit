@@ -12,13 +12,7 @@ As of today, SlothUnit is still starting out. Only available in VS, there are ju
 
 ### Usage
 
-1. Download the files within [the latest release](https://github.com/Suui/SlothUnit/releases).
-2. Install the VS SlothUnit Test Project template.
-    - Simply **move** the `SlothUnit Test Project.zip` into `C:\Users\{your user}\Documents\{your VS version}\Templates\ProjectTemplates`.
-3. Extract the contents of `SlothUnit.zip` inside the solution folder.
-    - For the project template to work, you must have a folder named `SlothUnit` inside your solution folder.
-    - The configuration that depends on this will be in the Pre-Build Events for the project.
-4. Create a new SlothUnit Test Project and start writing tests :)
+I'm working on a NuGet package :)
 
 ### Development
 
