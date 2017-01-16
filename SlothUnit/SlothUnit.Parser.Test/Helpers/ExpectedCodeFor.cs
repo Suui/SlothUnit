@@ -7,7 +7,7 @@ namespace SlothUnit.Parser.Test.Helpers
 	public class ExpectedCodeFor : FileSystemTest
 	{
 		public static string TheMainFile =
-@"#include ""../../SlothUnit/SlothUnit.h""
+@"#include ""../SlothUnit/SlothUnit.h""
 #include ""__Tests__.generated.h""
 
 using namespace SlothUnit;

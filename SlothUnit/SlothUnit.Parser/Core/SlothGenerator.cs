@@ -30,7 +30,7 @@ namespace SlothUnit.Parser.Core
 		public void GenerateMainFile()
 		{
 			GenerateFile(NameOfThe.MainFile,
-@"#include ""../../SlothUnit/SlothUnit.h""
+@"#include ""../SlothUnit/SlothUnit.h""
 #include ""__Tests__.generated.h""
 
 using namespace SlothUnit;
