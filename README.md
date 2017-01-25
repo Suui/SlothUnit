@@ -24,7 +24,7 @@ I'm working on a NuGet package :)
 An example of a test would be:
 
 ```cpp
-#include "../SlothUnit/SlothUnit.h"
+#include "SlothUnit/SlothUnit.h"
 
 using namespace SlothUnit;
 
