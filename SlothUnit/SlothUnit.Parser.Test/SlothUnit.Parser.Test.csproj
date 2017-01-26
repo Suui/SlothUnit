@@ -111,9 +111,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SlothUnit.Parser\SlothUnit.Parser.csproj">
+    <ProjectReference Include="..\SlothUnit.Parser\SlothUnit.CodeGenerator.csproj">
       <Project>{7A67C245-2895-4FF0-AAF7-3EBCD0E7CA9D}</Project>
-      <Name>SlothUnit.Parser</Name>
+      <Name>SlothUnit.CodeGenerator</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
