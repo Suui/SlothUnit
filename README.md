@@ -5,18 +5,23 @@ SlothUnit is a C++ unit testing framework that relies on reflection, implemented
 
 ## Current status
 
-As of today, SlothUnit is still starting out. Only available in VS, there are just a few simple assertions for bools, strings, integers and floats. But it may be used for fun on some katas or in pretty small projects where you don't need more than that :)
+As of today, SlothUnit is still starting out. Only available in Visual Studio and pretty slow, there are just a few simple assertions for bools, strings, integers and floats. But it may be used for fun on some katas or in small projects where you don't need more than that :)
 
 
 ## Setup
 
 ### Usage
 
-I'm working on a NuGet package :)
+1. Create a new empty project in Visual Studio: ***Visual C++*** **Win32 Console Application**.
+2. Install the [SlothUnit NuGet package](https://www.nuget.org/packages/SlothUnit/) in the newly created project.
+
+You may want to install it manually, to do so check out the [packaged releases](https://github.com/Suui/SlothUnit.Package/releases). The SlothUnit folder should be located in the root of your project, and a PreBuild event should fire the x86 or x64 `SlothUnit.CodeGenerator.exe` with the path of your test project as the only argument. The actual VS PreBuild command is:
+
+`"$(ProjectDir)\SlothUnit\x86\SlothUnit.CodeGenerator.exe" "$(ProjectDir)\."`
 
 ### Development
 
-1. Simply fork and clone the repo, the whole project is inside a VS solution.
+1. Simply fork and clone the repo, the whole project is inside a Visual Studio 2015 solution.
 
 
 ## Writing and executing tests
@@ -24,7 +29,8 @@ I'm working on a NuGet package :)
 An example of a test would be:
 
 ```cpp
-#include "../SlothUnit/SlothUnit.h"
+#pragma once
+#include "SlothUnit/SlothUnit.h"
 
 using namespace SlothUnit;
 
@@ -41,6 +47,4 @@ public:
 ```
 **The include path has to be relative to the file location instead of using the VS additional includes** since the compilation with Clang wouldn't find this VS shortcuts. At least for now it's that way.
 
-To execute, simply remember to have your SlothUnit Test Project as the StartUp project, build and run/debug :)
-
-
+**To execute**, simply remember to have your SlothUnit test project as the StartUp project, build and run/debug :)

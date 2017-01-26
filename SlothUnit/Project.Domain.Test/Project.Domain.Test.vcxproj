@@ -115,7 +115,7 @@
       </Outputs>
     </CustomBuildStep>
     <PreBuildEvent>
-      <Command>$(SolutionDir)SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
+      <Command>"$(SolutionDir)SlothUnit.CodeGenerator\bin\x86\Debug\SlothUnit.CodeGenerator.exe" "$(ProjectDir)\."</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -136,7 +136,7 @@
       </AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
+      <Command>"$(SolutionDir)SlothUnit.CodeGenerator\bin\x64\Debug\SlothUnit.CodeGenerator.exe" "$(ProjectDir)\."</Command>
     </PreBuildEvent>
     <CustomBuildStep>
       <Command>
@@ -177,7 +177,7 @@
       </Outputs>
     </CustomBuildStep>
     <PreBuildEvent>
-      <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
+      <Command>"$(SolutionDir)SlothUnit.CodeGenerator\bin\x86\Release\SlothUnit.CodeGenerator.exe" "$(ProjectDir)\."</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -205,7 +205,7 @@
       </Outputs>
     </CustomBuildStep>
     <PreBuildEvent>
-      <Command>D:\Projects\Programming\C#\SlothUnit\SlothUnit\SlothUnit.Parser\bin\x86\Debug\SlothUnit.Parser.exe $(ProjectDir)</Command>
+      <Command>"$(SolutionDir)SlothUnit.CodeGenerator\bin\x64\Release\SlothUnit.CodeGenerator.exe" "$(ProjectDir)\."</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

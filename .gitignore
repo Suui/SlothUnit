@@ -2,12 +2,11 @@
 packages
 Debug
 Release
-x86
-x64
 
 *.generated.h
 *.generated.cpp
 
+*.nupkg
 *.user
 *.opendb
 *.VC.db
