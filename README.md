@@ -15,6 +15,10 @@ As of today, SlothUnit is still starting out. Only available in Visual Studio an
 1. Create a new empty project in Visual Studio: ***Visual C++*** **Win32 Console Application**.
 2. Install the [SlothUnit NuGet package](https://www.nuget.org/packages/SlothUnit/) in the newly created project.
 
+You may want to install it manually, to do so check out the [packaged releases](https://github.com/Suui/SlothUnit.Package/releases). The SlothUnit folder should be located in the root of your project, and a PreBuild event should fire the x86 or x64 `SlothUnit.CodeGenerator.exe` with the path of your test project as the only argument. The actual VS PreBuild command is:
+
+`"$(ProjectDir)\SlothUnit\x86\SlothUnit.CodeGenerator.exe" "$(ProjectDir)\."`
+
 ### Development
 
 1. Simply fork and clone the repo, the whole project is inside a Visual Studio 2015 solution.
