@@ -12,7 +12,7 @@ As of today, SlothUnit is still starting out. Only available in Visual Studio, t
 
 ### Usage
 
-1. Create a new project in Visual Studio: ***Visual C++*** **Win32 Console Application**.
+1. Create a new empty project in Visual Studio: ***Visual C++*** **Win32 Console Application**.
 2. Install the [SlothUnit NuGet package](https://www.nuget.org/packages/SlothUnit/) in the newly created project.
 
 ### Development
