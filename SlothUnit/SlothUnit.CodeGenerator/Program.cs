@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using SlothUnit.Parser.Core;
+using SlothUnit.CodeGenerator.Core;
 
 
-namespace SlothUnit.Parser
+namespace SlothUnit.CodeGenerator
 {
 	class Program
 	{

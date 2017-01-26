@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using ClangSharp;
-using SlothUnit.Parser.Core.Elements;
+using SlothUnit.CodeGenerator.Core.Elements;
 
 
-namespace SlothUnit.Parser.Core
+namespace SlothUnit.CodeGenerator.Core
 {
 	public class ClangWrapper : IDisposable
 	{

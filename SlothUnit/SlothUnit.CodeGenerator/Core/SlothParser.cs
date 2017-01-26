@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using SlothUnit.Parser.Core.Collections;
-using SlothUnit.Parser.Core.Elements;
-using SlothUnit.Parser.Infrastructure;
-using File = SlothUnit.Parser.Core.Elements.File;
+using SlothUnit.CodeGenerator.Core.Collections;
+using SlothUnit.CodeGenerator.Core.Elements;
+using SlothUnit.CodeGenerator.Infrastructure;
+using File = SlothUnit.CodeGenerator.Core.Elements.File;
 
 
-namespace SlothUnit.Parser.Core
+namespace SlothUnit.CodeGenerator.Core
 {
 	public class SlothParser
 	{

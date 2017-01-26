@@ -1,8 +1,8 @@
 ﻿using System.IO;
-using SlothUnit.Parser.Infrastructure;
+using SlothUnit.CodeGenerator.Infrastructure;
 
 
-namespace SlothUnit.Parser.Test.Helpers
+namespace SlothUnit.CodeGenerator.Test.Helpers
 {
 	public class ExpectedCodeFor : FileSystemTest
 	{

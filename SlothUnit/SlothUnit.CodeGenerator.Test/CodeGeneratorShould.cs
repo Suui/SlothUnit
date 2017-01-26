@@ -3,16 +3,16 @@ using System.IO;
 using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
-using SlothUnit.Parser.Core;
-using SlothUnit.Parser.Infrastructure;
-using SlothUnit.Parser.Test.Helpers;
+using SlothUnit.CodeGenerator.Core;
+using SlothUnit.CodeGenerator.Infrastructure;
+using SlothUnit.CodeGenerator.Test.Helpers;
 using File = System.IO.File;
 
 /* TODO
 	- Test the number generation for the registrars (registrar_0 ... registrar_X)? Seems a bit awful, delaying it
 */
 
-namespace SlothUnit.Parser.Test
+namespace SlothUnit.CodeGenerator.Test
 {
 	[TestFixture]
 	public class CodeGeneratorShould : FileSystemTest

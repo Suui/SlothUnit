@@ -2,7 +2,7 @@
 using System.IO;
 
 
-namespace SlothUnit.Parser.Test.Helpers
+namespace SlothUnit.CodeGenerator.Test.Helpers
 {
 	public class FileSystemTest
 	{

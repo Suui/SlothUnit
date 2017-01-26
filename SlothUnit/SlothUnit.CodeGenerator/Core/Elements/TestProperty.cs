@@ -1,4 +1,4 @@
-﻿namespace SlothUnit.Parser.Core.Elements
+﻿namespace SlothUnit.CodeGenerator.Core.Elements
 {
 	public class TestProperty
 	{

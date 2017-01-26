@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SlothUnit.Parser.Core.Elements;
-using SlothUnit.Parser.Infrastructure;
+using SlothUnit.CodeGenerator.Core.Elements;
+using SlothUnit.CodeGenerator.Infrastructure;
 
 
-namespace SlothUnit.Parser.Core.Collections
+namespace SlothUnit.CodeGenerator.Core.Collections
 {
 	public class TestClasses
 	{

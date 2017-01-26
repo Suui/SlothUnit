@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using SlothUnit.Parser.Core.Collections;
-using SlothUnit.Parser.Infrastructure;
+using SlothUnit.CodeGenerator.Core.Collections;
+using SlothUnit.CodeGenerator.Infrastructure;
 
 
-namespace SlothUnit.Parser.Core
+namespace SlothUnit.CodeGenerator.Core
 {
 	public class SlothGenerator
 	{

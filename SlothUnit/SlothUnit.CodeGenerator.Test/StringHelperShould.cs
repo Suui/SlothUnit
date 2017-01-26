@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
-using SlothUnit.Parser.Infrastructure;
+using SlothUnit.CodeGenerator.Infrastructure;
 
 
-namespace SlothUnit.Parser.Test
+namespace SlothUnit.CodeGenerator.Test
 {
 	[TestFixture]
 	public class StringHelperShould

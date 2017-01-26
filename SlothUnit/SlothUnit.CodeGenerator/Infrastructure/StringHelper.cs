@@ -1,7 +1,7 @@
 using System.Linq;
 
 
-namespace SlothUnit.Parser.Infrastructure
+namespace SlothUnit.CodeGenerator.Infrastructure
 {
 	public class StringHelper
 	{

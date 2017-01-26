@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using SlothUnit.Parser.Core.Collections;
-using SlothUnit.Parser.Infrastructure;
+using SlothUnit.CodeGenerator.Core.Collections;
+using SlothUnit.CodeGenerator.Infrastructure;
 
 
-namespace SlothUnit.Parser.Core.Elements
+namespace SlothUnit.CodeGenerator.Core.Elements
 {
 	public class TestFile
 	{

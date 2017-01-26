@@ -1,12 +1,12 @@
 ﻿using System.IO;
 using FluentAssertions;
 using NUnit.Framework;
-using SlothUnit.Parser.Core;
-using SlothUnit.Parser.Core.Elements;
-using SlothUnit.Parser.Test.Helpers;
+using SlothUnit.CodeGenerator.Core;
+using SlothUnit.CodeGenerator.Core.Elements;
+using SlothUnit.CodeGenerator.Test.Helpers;
 
 
-namespace SlothUnit.Parser.Test
+namespace SlothUnit.CodeGenerator.Test
 {
 	[TestFixture]
 	public class TestMethodShould : FileSystemTest
