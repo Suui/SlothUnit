@@ -25,6 +25,7 @@ As of today, SlothUnit is still starting out. Only available in Visual Studio, t
 An example of a test would be:
 
 ```cpp
+#pragma once
 #include "SlothUnit/SlothUnit.h"
 
 using namespace SlothUnit;
