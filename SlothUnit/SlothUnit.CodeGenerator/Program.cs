@@ -11,8 +11,11 @@ namespace SlothUnit.CodeGenerator
 		{
 			if (args.Length == 1)
 			{
+				Console.WriteLine("SlothUnit: Parsing project files...");
 				var rootPath = args.Single();
 				var testFiles = SlothParser.RetrieveTestFilesIn(rootPath);
+
+				Console.WriteLine("SlothUnit: Generating code...");
 				var slothGenerator = SlothGenerator.For(rootPath);
 				slothGenerator.GenerateMainFile();
 				slothGenerator.GenerateIncludedTestsFile();
