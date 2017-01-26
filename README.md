@@ -5,7 +5,7 @@ SlothUnit is a C++ unit testing framework that relies on reflection, implemented
 
 ## Current status
 
-As of today, SlothUnit is still starting out. Only available in Visual Studio, there are just a few simple assertions for bools, strings, integers and floats. But it may be used for fun on some katas or in small projects where you don't need more than that :)
+As of today, SlothUnit is still starting out. Only available in Visual Studio and pretty slow, there are just a few simple assertions for bools, strings, integers and floats. But it may be used for fun on some katas or in small projects where you don't need more than that :)
 
 
 ## Setup
