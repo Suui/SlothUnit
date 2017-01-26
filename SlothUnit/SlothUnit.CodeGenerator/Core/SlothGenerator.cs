@@ -29,6 +29,8 @@ namespace SlothUnit.CodeGenerator.Core
 
 		public void GenerateMainFile()
 		{
+			if (File.Exists(Path.Combine(GeneratedFolderPath, NameOfThe.MainFile))) return;
+
 			GenerateFile(NameOfThe.MainFile,
 @"#include ""../SlothUnit/SlothUnit.h""
 #include ""__Tests__.generated.h""
