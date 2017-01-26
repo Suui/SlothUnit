@@ -8,8 +8,8 @@
     <ProjectGuid>{DCB05129-8F0B-465B-A891-57D186FC1A37}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SlothUnit.Parser.Test</RootNamespace>
-    <AssemblyName>SlothUnit.Parser.Test</AssemblyName>
+    <RootNamespace>SlothUnit.CodeGenerator.Test</RootNamespace>
+    <AssemblyName>SlothUnit.CodeGenerator.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -111,7 +111,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SlothUnit.Parser\SlothUnit.CodeGenerator.csproj">
+    <ProjectReference Include="..\SlothUnit.CodeGenerator\SlothUnit.CodeGenerator.csproj">
       <Project>{7A67C245-2895-4FF0-AAF7-3EBCD0E7CA9D}</Project>
       <Name>SlothUnit.CodeGenerator</Name>
     </ProjectReference>
