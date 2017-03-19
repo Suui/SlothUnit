@@ -44,7 +44,7 @@ $@"auto registrar_{RegistrarId.Next()} = TestRegistrar(TestClass<{@class.Name}>
 
 ";
 			});
-			return generatedCode.Substring(0, generatedCode.LastIndexOf('\r'));
+			return generatedCode;
 		}
 	}
 }

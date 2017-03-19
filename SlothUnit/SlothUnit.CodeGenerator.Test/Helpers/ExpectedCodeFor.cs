@@ -35,6 +35,7 @@ $@" = TestRegistrar(TestClass<ClassWithASingleTestMethod>
 		{{ ""single_test_method"", &ClassWithASingleTestMethod::single_test_method }}
 	}}
 ));
+
 ";
 
 		public static string AClassWithMultipleTestMethods =
@@ -49,6 +50,7 @@ $@" = TestRegistrar(TestClass<ClassWithMultipleTestMethods>
 		{{ ""third_test_method"", &ClassWithMultipleTestMethods::third_test_method }}
 	}}
 ));
+
 ";
 
 		public static string AClassInTheMiddleOfMultipleTestClasses =
@@ -74,6 +76,7 @@ $@" = TestRegistrar(TestClass<SecondTestClass>
 		{{ ""test_method"", &SecondTestClass::test_method }}
 	}}
 ));
+
 ";
 	}
 }

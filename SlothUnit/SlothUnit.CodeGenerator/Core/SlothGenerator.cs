@@ -61,7 +61,7 @@ $@"#pragma once
 
 {testClasses}";
 
-				var destinationPath = testFile.Path.Remove(0, RootPath.Length+1);
+				var destinationPath = testFile.Path.Remove(0, RootPath.Length + 1);
 				var filePath = destinationPath.Substring(0, destinationPath.LastIndexOf('.'));
 				GenerateFile(filePath + ".generated.h", content);
 			});
