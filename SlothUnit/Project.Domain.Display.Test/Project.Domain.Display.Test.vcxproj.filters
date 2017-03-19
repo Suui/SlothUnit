@@ -23,7 +23,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="__Generated__\__Main__.generated.cpp">
+    <ClCompile Include="CustomMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
