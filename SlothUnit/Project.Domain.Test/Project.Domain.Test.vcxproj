@@ -209,9 +209,6 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="__Generated__\__Main__.generated.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="CalculatorShould.h" />
     <ClInclude Include="ClangWrapperShould.h" />
     <ClInclude Include="CodeGeneration\ClassWithASingleTestMethod.h" />
@@ -241,6 +238,9 @@
     <ProjectReference Include="..\Project.Domain\Project.Domain.vcxproj">
       <Project>{09bd1753-4863-44cb-ae84-463fd1013c57}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CustomMain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
