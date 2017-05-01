@@ -52,6 +52,18 @@ namespace SlothUnit.CodeGenerator.Test
 		}
 
 		[Test]
+		public void not_generate_the_main_file_if_a_custom_main_method_is_present_in_the_test_project()
+		{
+			var customMainFilePath = Path.Combine(TestProjectPath, "CustomMain.cpp");
+			File.WriteAllText(customMainFilePath, @"int main() { return 0; }");
+			
+			SlothGenerator.GenerateMainFile();
+
+			Directory.GetFiles(GeneratedFolderPath)
+					 .Contains(Path.Combine(GeneratedFolderPath, NameOfThe.MainFile)).Should().BeFalse();
+		}
+
+		[Test]
 		public void generate_the_included_tests_file()
 		{
 			SlothGenerator.GenerateIncludedTestsFile();
