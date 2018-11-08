@@ -41,5 +41,14 @@ namespace SlothUnit.CodeGenerator.Test
 		{
 			ClangWrapper.GetCursorLine(ClassCursor).Should().Be(6);
 		}
+
+	    [Test]
+	    public void retrieve_a_methods_return_type()
+	    {
+	        var methodCursor = ClangWrapper.RetrieveMethodCursorsIn(ClassCursor).Single();
+
+            ClangWrapper.GetMethodCursorReturnType(methodCursor).Should().Be("int");
+	        ClangWrapper.GetCursorName(methodCursor).Should().Be("a_method_with_a_return_type_int");
+	    }
 	}
 }

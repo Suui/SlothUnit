@@ -131,7 +131,12 @@ namespace SlothUnit.CodeGenerator.Core
 			return clang.getCursorSpelling(cursor).ToString();
 		}
 
-		public int GetCursorLine(CXCursor cursor)
+	    public string GetMethodCursorReturnType(CXCursor methodCursor)
+	    {
+	        return clang.getResultType(clang.getCursorType(methodCursor)).ToString();
+	    }
+
+        public int GetCursorLine(CXCursor cursor)
 		{
 			CXFile file;
 			uint line, column, offset;
